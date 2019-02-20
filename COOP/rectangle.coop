@@ -1,0 +1,21 @@
+class rectangle {
+	private int width;
+	private int length;
+	
+	public rectangle(int width, int length){
+		this.width = width;
+		this.length = length;
+	}
+	
+	protected int getWidth(){
+		return width;
+	}
+	
+	protected int getLength(){
+		return length;
+	}
+	
+	public int getArea(){
+		return width * length;
+	}
+}
