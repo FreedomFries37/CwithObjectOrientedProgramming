@@ -14,15 +14,37 @@ namespace COOP.core.compiler.converters {
 		
 		
 		public Collection<FileConvertedInformation> convert(COOPClass coopObject, ClassHierarchy hierarchy) {
-			var outout = new Collection<FileConvertedInformation>();
+			var output = new Collection<FileConvertedInformation>();
 			COOPClass parent = hierarchy.getParent(coopObject);
 			bool createProtected, createPrivate;
 			string publicStructure = generatePublicStructure(coopObject, parent, out createProtected, out createPrivate);
 
+			string cFile;
+			if (createPrivate) cFile = generatePrivateStructure(coopObject);
+			else {
+				cFile = "";
+			}
+			COOPFunctionConverter functionConverter = new COOPFunctionConverter(hierarchy, coopObject);
+			List<FunctionConvertedInformation> functionConvertedInformations = new List<FunctionConvertedInformation>();
+			foreach (var coopObjectFunction in coopObject.Functions.Values) {
+				var f = functionConverter.convert(coopObjectFunction);
+				functionConvertedInformations.AddRange(f);
+			}
+			
+			foreach (FunctionConvertedInformation functionConvertedInformation in functionConvertedInformations) {
+				cFile += functionConvertedInformation.signature + ";\n";
+			}
+			
+			foreach (FunctionConvertedInformation functionConvertedInformation in functionConvertedInformations) {
+				cFile += functionConvertedInformation.signature + "{\n";
+				cFile += functionConvertedInformation.body;
+				cFile += "}\n";
+			}
+			
 			Console.WriteLine(publicStructure);
+			Console.WriteLine(cFile);
 
-
-			return outout;
+			return output;
 		}
 
 		private string generatePublicStructure(COOPClass coopClass, COOPClass parent, out bool createProtected, out bool createPrivate) {
@@ -74,6 +96,12 @@ namespace COOP.core.compiler.converters {
 						$"{protectedStruct}" +
 						$"{privateStruct}" +
 					"}};";
+		}
+
+		private string generatePrivateStructure(COOPClass coopClass) {
+
+
+			return "";
 		}
 	}
 }

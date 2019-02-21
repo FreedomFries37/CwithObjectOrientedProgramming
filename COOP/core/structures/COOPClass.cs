@@ -28,19 +28,42 @@ namespace COOP.core.inheritence {
 				new Collection<COOPFunction>
 				{
 					init,
-					new COOPFunction("ToString", String)
+					new COOPFunction("ToString", String),
+					new COOPFunction("Print", String),
+					new COOPFunction("PrintLn", String)
 				},
 				new Dictionary<string, COOPClass>()
 			);
+			Base.functions["ToString"].AccessLevel = AccessLevel.Public;
+			Base.functions["Print"].AccessLevel = AccessLevel.Public;
+			Base.functions["Print"].Body = "ToString().Print()";
+			Base.functions["PrintLn"].AccessLevel = AccessLevel.Public;
+			Base.functions["PrintLn"].Body = "ToString().PrintLn()";
+			
 			CharPtr = new PrimitiveCOOPClass("char*");
 			String = new COOPClass("String", Base,
-				new Collection<COOPFunction>(),
+				new Collection<COOPFunction> (),
 				new Dictionary<string, COOPClass> {
 					{"ptr", CharPtr}
 				}
 			);
+			String.functions.Add("Print", new COOPFunction("Print", String));
+			String.functions.Add("PrintLn", new COOPFunction("PrintLn", String));
+			String.functions.Add("ToString", new COOPFunction("PrintLn", String));
+			
 			String.addNonDefualtAccessLevel("ptr", AccessLevel.Public);
-			Base.functions["ToString"].AccessLevel = AccessLevel.Public;
+			String.functions["ToString"].AccessLevel = AccessLevel.Public;
+			String.functions["ToString"].owner = String;
+			String.functions["Print"].AccessLevel = AccessLevel.Public;
+			String.functions["Print"].owner = String;
+			String.functions["Print"].bodyInC = true;
+			String.functions["Print"].Body = "\tprintf(\"%s\", ptr);";
+			String.functions["PrintLn"].AccessLevel = AccessLevel.Public;
+			String.functions["PrintLn"].owner = String;
+			String.functions["PrintLn"].bodyInC = true;
+			String.functions["PrintLn"].Body = "\tprintf(\"%s\n\", ptr);";
+
+
 		}
 
 		public COOPClass(string name, COOPClass parent, Dictionary<string, COOPFunction> functions, Dictionary<string, COOPClass> varNames) {

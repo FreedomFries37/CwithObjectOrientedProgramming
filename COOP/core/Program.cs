@@ -33,14 +33,18 @@ namespace COOP {
 					{"strings", new COOPArray(COOPClass.String, 15)}
 				}
 				);
+			testClass.Functions["get"].Body = "\treturn strings.get(index);";
 			var heiarchy = new ClassHierarchy();
 			heiarchy.addClass(COOPClass.String);
 			heiarchy.print();
 			testClass.addNonDefualtAccessLevel("strings", AccessLevel.Public);
+			converter.convert(COOPClass.String, heiarchy);
 			heiarchy.addClass(testClass);
-			//converter.convert(testClass, heiarchy);
+			converter.convert(testClass, heiarchy);
+			
+			
 			COOPFunctionConverter functionConverter = new COOPFunctionConverter(heiarchy, testClass);
-			testClass.Functions["get"].Body = "return strings.get(index);";
+			
 			functionConverter.convert(testClass.Functions["get"]);
 			
 			COOPFileLexer fileLexer = new COOPFileLexer();

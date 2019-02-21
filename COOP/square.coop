@@ -1,3 +1,5 @@
+using rectangle;
+
 class square[rectangle]{
 	public square(int sidelength)[sidelength, sidelength]{
 	

@@ -128,7 +128,7 @@ namespace COOP.core.compiler.converters {
 			AccessLevel accessLevel = coopObject.AccessLevel;
 			bool isStatic = coopObject.IsStatic;
 			string signature = generateSignature(coopObject);
-			string body = fixBody(coopObject.Body, generateTypeNames(coopObject));
+			string body = coopObject.bodyInC? coopObject.Body : fixBody(coopObject.Body, generateTypeNames(coopObject));
 			
 			FunctionConvertedInformation functionConvertedInformation = new FunctionConvertedInformation
 				(accessLevel, isStatic, signature, body, coopObject.ReturnType, coopObject.InputTypes);
@@ -181,7 +181,8 @@ namespace COOP.core.compiler.converters {
 
 		private void addFunctionToMangledNameDictionary(string originalName, List<COOPClass> inputTypes,
 			string mangledName) {
-			originalNameAndInputTypesToMangledName.Add(new NameInputTypePair(originalName, inputTypes), mangledName);
+			NameInputTypePair nameInputTypePair = new NameInputTypePair(originalName, inputTypes);
+			if(!originalNameAndInputTypesToMangledName.ContainsKey(nameInputTypePair)) originalNameAndInputTypesToMangledName.Add(nameInputTypePair, mangledName);
 		}
 		
 		private string getMangledName(string originalName, List<COOPClass> inputTypes) {
@@ -193,7 +194,9 @@ namespace COOP.core.compiler.converters {
 		
 		private void addFunctionToStaticDictionary(string originalName, List<COOPClass> inputTypes,
 			bool isStatic) {
-			originalNameAndInputTypesToisStatic.Add(new NameInputTypePair(originalName, inputTypes), isStatic);
+			NameInputTypePair nameInputTypePair = new NameInputTypePair(originalName, inputTypes);
+			if(!originalNameAndInputTypesToisStatic.ContainsKey(nameInputTypePair))
+				originalNameAndInputTypesToisStatic.Add(new NameInputTypePair(originalName, inputTypes), isStatic);
 		}
 		
 		private bool getIsStatic(string originalName, List<COOPClass> inputTypes) {
@@ -206,7 +209,7 @@ namespace COOP.core.compiler.converters {
 		private string fixBody(string originalBody, List<TypeName> existingInformation) {
 			string modified = originalBody;
 			Regex blocks = new Regex(@"{.*}");
-			string[] outOfBlocks = Regex.Split(modified, "\\{.*\\}");
+			//string[] outOfBlocks = Regex.Split(modified, "\\{.*\\}");
 			
 			
 			Dictionary<string, COOPClass> vars = new Dictionary<string, COOPClass>();
@@ -243,7 +246,7 @@ namespace COOP.core.compiler.converters {
 			
 			//Fix all input parameters to correct types
 			foreach (TypeName typeName in existingInformation) {
-				modified = $"{typeName.@class.convertToC()} {typeName.name.Remove(0, 2)} = ({typeName.@class.convertToC()}) {typeName.name};" + modified;
+				modified = $"\t{typeName.@class.convertToC()} {typeName.name.Remove(0, 2)} = ({typeName.@class.convertToC()}) {typeName.name};\n" + modified;
 			}
 			
 			Regex functionCall = new Regex ("(?<caller>\\w+)\\s*\\.\\s*(?<function>\\w+)\\s*\\((?<inputs>\\s*(\\w+|\"[^\"]*\"|'.')\\s*(,\\s*(\\w+|\"[^\"]*\"|'.')\\s*)*)?\\)");

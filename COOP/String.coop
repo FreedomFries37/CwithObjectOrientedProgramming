@@ -1,0 +1,16 @@
+functions String{
+	
+	@inC
+	public void Print(){
+		printf("%s", ptr);
+	}
+	
+	@inC
+    public void PrintLn(){
+    	printf("%s\n", ptr);
+    }
+    
+    public void ToString(){
+        
+    }
+}

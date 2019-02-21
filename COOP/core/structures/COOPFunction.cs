@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Dynamic;
 using COOP.core.inheritence;
 
 namespace COOP.core {
@@ -11,8 +12,10 @@ namespace COOP.core {
 		private Dictionary<string, COOPClass> varNames;
 		private AccessLevel accessLevel = 0;
 		private bool isStatic;
+		
 
 		private string body;
+		public bool bodyInC { get; set; } = false;
 
 		public COOPClass owner { get; set; }
 
