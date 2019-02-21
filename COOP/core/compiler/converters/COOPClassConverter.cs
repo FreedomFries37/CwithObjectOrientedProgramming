@@ -26,7 +26,7 @@ namespace COOP.core.compiler.converters {
 			}
 			COOPFunctionConverter functionConverter = new COOPFunctionConverter(hierarchy, coopObject);
 			List<FunctionConvertedInformation> functionConvertedInformations = new List<FunctionConvertedInformation>();
-			foreach (var coopObjectFunction in coopObject.Functions.Values) {
+			foreach (var coopObjectFunction in coopObject.getFunctions()) {
 				var f = functionConverter.convert(coopObjectFunction);
 				functionConvertedInformations.AddRange(f);
 			}

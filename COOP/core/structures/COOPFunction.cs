@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using COOP.core.inheritence;
@@ -89,6 +90,19 @@ namespace COOP.core {
 		public string Body{
 			get => body;
 			set => body = value;
+		}
+
+		public override string ToString() {
+			string output = owner.Name + "::" + name;
+			output += "(";
+			if (inputTypes.Count > 0) output += inputTypes[0].Name;
+			for (var i = 1; i < inputTypes.Count; i++) {
+				output += ", " + inputTypes[i].Name;
+			}
+			output += "){\n";
+			output += body;
+			output += "\n}";
+			return output;
 		}
 	}
 }

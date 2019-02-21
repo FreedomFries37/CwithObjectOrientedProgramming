@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using COOP.core.structures;
@@ -16,6 +17,7 @@ namespace COOP.core.inheritence {
 		private Dictionary<string, AccessLevel> varToLevel = new Dictionary<string, AccessLevel>();
 
 		public static COOPClass Base;
+		public static COOPClass Void;
 		public static COOPClass String;
 		private static PrimitiveCOOPClass CharPtr;
 
@@ -24,13 +26,14 @@ namespace COOP.core.inheritence {
 		static COOPClass(){
 			
 			COOPFunction init = new COOPFunction("__init__", Base);
+			Void  = new PrimitiveCOOPClass("void");
 			Base = new COOPClass("Object", null, 
 				new Collection<COOPFunction>
 				{
 					init,
 					new COOPFunction("ToString", String),
-					new COOPFunction("Print", String),
-					new COOPFunction("PrintLn", String)
+					new COOPFunction("Print", Void),
+					new COOPFunction("PrintLn", Void)
 				},
 				new Dictionary<string, COOPClass>()
 			);
@@ -47,21 +50,22 @@ namespace COOP.core.inheritence {
 					{"ptr", CharPtr}
 				}
 			);
-			String.functions.Add("Print", new COOPFunction("Print", String));
-			String.functions.Add("PrintLn", new COOPFunction("PrintLn", String));
-			String.functions.Add("ToString", new COOPFunction("PrintLn", String));
+			String.functions.Add("Print", new COOPFunction("Print", Void));
+			String.functions.Add("PrintLn", new COOPFunction("PrintLn", Void));
+			String.functions.Add("ToString", new COOPFunction("ToString", String));
 			
 			String.addNonDefualtAccessLevel("ptr", AccessLevel.Public);
 			String.functions["ToString"].AccessLevel = AccessLevel.Public;
 			String.functions["ToString"].owner = String;
+			String.functions["ToString"].Body = "return this;";
 			String.functions["Print"].AccessLevel = AccessLevel.Public;
 			String.functions["Print"].owner = String;
 			String.functions["Print"].bodyInC = true;
-			String.functions["Print"].Body = "\tprintf(\"%s\", ptr);";
+			String.functions["Print"].Body = "\tprintf(\"%s\", __this->ptr);";
 			String.functions["PrintLn"].AccessLevel = AccessLevel.Public;
 			String.functions["PrintLn"].owner = String;
 			String.functions["PrintLn"].bodyInC = true;
-			String.functions["PrintLn"].Body = "\tprintf(\"%s\n\", ptr);";
+			String.functions["PrintLn"].Body = "\tprintf(\"%s\\n\", __this->ptr);";
 
 
 		}
@@ -115,6 +119,12 @@ namespace COOP.core.inheritence {
 
 		public void addImports(COOPClass coopClass) {
 			imports.Add(coopClass);
+		}
+
+		public List<COOPFunction> getFunctions() {
+			List<COOPFunction> output = new List<COOPFunction>();
+			output.AddRange(from f in Functions.Keys select Functions[f]);
+			return output;
 		}
 	}
 }

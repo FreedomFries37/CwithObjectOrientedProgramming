@@ -17,6 +17,7 @@ namespace COOP {
 			
 			
 			COOPClassConverter converter = new COOPClassConverter();
+			
 			COOPClass testClass = new COOPClass(
 				"testClass",
 				COOPClass.Base,
@@ -34,8 +35,11 @@ namespace COOP {
 				}
 				);
 			testClass.Functions["get"].Body = "\treturn strings.get(index);";
+			
+			
+			
 			var heiarchy = new ClassHierarchy();
-			heiarchy.addClass(COOPClass.String);
+			//heiarchy.addClass(COOPClass.String);
 			heiarchy.print();
 			testClass.addNonDefualtAccessLevel("strings", AccessLevel.Public);
 			converter.convert(COOPClass.String, heiarchy);

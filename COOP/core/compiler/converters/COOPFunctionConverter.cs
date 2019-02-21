@@ -222,9 +222,11 @@ namespace COOP.core.compiler.converters {
 			Regex declareAndAssign = new Regex(@"(?<type>\w+)\s+(?<name>\w+)\s*=\s*[^;]+;");
 			foreach (Match match in declareOnly.Matches(modified)) {
 				string type = match.Groups["type"].Value;
+				if(ReservedWords.isReserved(type)) continue;
 				string[] decs = Regex.Split(match.Groups["names"].Value, "\\s*,\\s*");
 				COOPClass coopClass = classHierarchy.getClass(type);
 				foreach (string dec in decs) {
+					if(ReservedWords.isReserved(dec)) continue;
 					vars.Add(dec, coopClass);
 				}
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using COOP.core.structures;
 
 namespace COOP.core.inheritence {
 	public class ClassHierarchy {
@@ -83,6 +84,19 @@ namespace COOP.core.inheritence {
 
 		public ClassHierarchy() {
 			head = new Node(COOPClass.Base, null);
+			addClass(COOPClass.String);
+			addClass(COOPClass.Void);
+			addClass(COOPPrimitives.@byte);
+			addClass(COOPPrimitives.@short);
+			addClass(COOPPrimitives.integer);
+			addClass(COOPPrimitives.@long);
+			addClass(COOPPrimitives.ubyte);
+			addClass(COOPPrimitives.@ushort);
+			addClass(COOPPrimitives.uinteger);
+			addClass(COOPPrimitives.@ulong);
+			
+			addClass(COOPPrimitives.@float);
+			addClass(COOPPrimitives.@double);
 		}
 
 		public bool addClass(COOPClass coopClass) {
@@ -98,12 +112,14 @@ namespace COOP.core.inheritence {
 				return false;
 			}
 
-			if (!contains(coopClass.Parent)) {
-				addClassPriv(coopClass.Parent, out parent);
-			} else {
-				parent = this[coopClass.Parent];
+			if (coopClass.Parent != null) {
+				if (!contains(coopClass.Parent)) {
+					addClassPriv(coopClass.Parent, out parent);
+				} else {
+					parent = this[coopClass.Parent];
+				}
 			}
-			
+
 			Node newNode = new Node(coopClass, parent);
 			createdNode = newNode;
 			return true;

@@ -29,5 +29,9 @@ namespace COOP.core.compiler {
 			this.returnType = returnType;
 			this.inputTypes = inputTypes;
 		}
+
+		public override string ToString() {
+			return $"{signature}{{\n{body}\n}}";
+		}
 	}
 }
