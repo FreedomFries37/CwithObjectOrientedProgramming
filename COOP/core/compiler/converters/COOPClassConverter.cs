@@ -2,28 +2,52 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
+using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using System.Threading;
 using COOP.core.inheritence;
 using COOP.core.structures;
 
 namespace COOP.core.compiler.converters {
 	public class COOPClassConverter : IConverter<COOPClass, FileConvertedInformation> {
-		
-		
-		
+
+		public bool humanReadable { get; set; } = true;
+
 		public Collection<FileConvertedInformation> convert(COOPClass coopObject, ClassHierarchy hierarchy) {
 			var output = new Collection<FileConvertedInformation>();
 			COOPClass parent = hierarchy.getParent(coopObject);
 			bool createProtected, createPrivate;
 			string publicStructure = generatePublicStructure(coopObject, parent, out createProtected, out createPrivate);
 
-			string cFile;
-			if (createPrivate) cFile = generatePrivateStructure(coopObject);
-			else {
-				cFile = "";
+			string cFile = "", 
+				protectedHeader = $"#ifndef SRC_PROTECTED_FILE_{coopObject.Name}\n#define SRC_PROTECTED_FILE_{coopObject.Name}\n", 
+				publicHeader = $"#ifndef SRC_PUBLIC_FILE_{coopObject.Name}\n#define SRC_PUBLIC_FILE_{coopObject.Name}\n";
+	
+			foreach (COOPClass coopObjectImport in coopObject.imports) {
+				cFile += $"#include \"{coopObjectImport.Name}.h\"\n";
 			}
+
+			if (coopObject.Parent != null) {
+				cFile += $"#include \"{coopObject.Parent.Name}_protected.h\"\n";
+			}
+
+			cFile += $"#include \"{coopObject.Name}_protected.h\"\n";
+			
+			
+			if (createPrivate) cFile += generatePrivateStructure(coopObject);
+
+
+			protectedHeader +=  $"#include \"{coopObject.Name}.h\"\n";
+			if (createProtected) {
+				protectedHeader += generateProtectedStructure(coopObject);
+			}
+			
+			publicHeader += publicStructure;
+			
+			
 			COOPFunctionConverter functionConverter = new COOPFunctionConverter(hierarchy, coopObject);
 			List<FunctionConvertedInformation> functionConvertedInformations = new List<FunctionConvertedInformation>();
 			foreach (var coopObjectFunction in coopObject.getFunctions()) {
@@ -31,8 +55,27 @@ namespace COOP.core.compiler.converters {
 				functionConvertedInformations.AddRange(f);
 			}
 			
-			foreach (FunctionConvertedInformation functionConvertedInformation in functionConvertedInformations) {
+			foreach (FunctionConvertedInformation functionConvertedInformation in 
+				from f in functionConvertedInformations where f.accessLevel == AccessLevel.Private select f) {
 				cFile += functionConvertedInformation.signature + ";\n";
+			}
+			
+			foreach (FunctionConvertedInformation functionConvertedInformation in 
+				from f in functionConvertedInformations where f.accessLevel == AccessLevel.Protected select f) {
+				protectedHeader += functionConvertedInformation.signature + ";\n";
+			}
+
+			bool hasMain = false;
+			string sig = "";
+			foreach (FunctionConvertedInformation functionConvertedInformation in 
+				from f in functionConvertedInformations where f.accessLevel == AccessLevel.Public select f) {
+				publicHeader += functionConvertedInformation.signature + ";\n";
+				//Console.WriteLine(functionConvertedInformation.signature);
+				if (functionConvertedInformation.OriginalName == "main") {
+					Console.WriteLine("Main Method Found: " + functionConvertedInformation.signature);
+					hasMain = true;
+					sig = functionConvertedInformation.signature;
+				}
 			}
 			
 			foreach (FunctionConvertedInformation functionConvertedInformation in functionConvertedInformations) {
@@ -40,10 +83,26 @@ namespace COOP.core.compiler.converters {
 				cFile += functionConvertedInformation.body;
 				cFile += "}\n";
 			}
-			
-			Console.WriteLine(publicStructure);
-			Console.WriteLine(cFile);
 
+			publicHeader += "#endif";
+			protectedHeader += "#endif";
+			
+			if (humanReadable) {
+				cFile = toHumanReadable(cFile);
+				publicHeader = toHumanReadable(publicHeader);
+				protectedHeader = toHumanReadable(protectedHeader);
+			}
+			
+			output.Add(new FileConvertedInformation(coopObject.Name + ".c", cFile));
+			output.Add(new FileConvertedInformation(coopObject.Name + "_protected.h", protectedHeader));
+			output.Add(new FileConvertedInformation(coopObject.Name + ".h", publicHeader));
+
+			if (hasMain) {
+				output[2].hasMainMethod = true;
+				output[2].mainMethod = sig;
+				Console.WriteLine("Main Method Confirmed: " + sig);
+			}
+			
 			return output;
 		}
 
@@ -95,13 +154,56 @@ namespace COOP.core.compiler.converters {
 						$"{publicStruct}" +
 						$"{protectedStruct}" +
 						$"{privateStruct}" +
-					"}};";
+					"};";
 		}
 
 		private string generatePrivateStructure(COOPClass coopClass) {
 
 
 			return "";
+		}
+		
+		private string generateProtectedStructure(COOPClass coopClass) {
+
+
+			return "";
+		}
+
+		private string toHumanReadable(string s) {
+			string modified = s, output = "";
+			modified = modified.Replace("}", "\n}\n");
+			modified = Regex.Replace(modified, "\\{", "{\n" );
+			modified = Regex.Replace(modified, ";", ";\n");
+			string[] seperated = Regex.Split(modified, "\\n+");
+
+
+			int indentLevel = 0;
+			
+			foreach (string line in seperated) {
+				if (line != "") {
+					Regex tabs = new Regex("\t*(?<statement>.*)");
+					string lineWithIndent = "";
+					if (line.Contains("}") && indentLevel > 0) {
+						indentLevel--;
+					}
+					for (int i = 0; i < indentLevel; i++) {
+						lineWithIndent += "\t";
+					}
+
+					lineWithIndent += tabs.Match(line).Groups["statement"].Value + "\n";
+
+					if (line.Contains("{")) {
+						indentLevel++;
+					}
+
+					
+
+					output += lineWithIndent;
+				}
+			}
+			
+			
+			return output;
 		}
 	}
 }

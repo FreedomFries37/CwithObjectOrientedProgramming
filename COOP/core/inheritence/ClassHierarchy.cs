@@ -1,6 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using COOP.core.compiler;
+using COOP.core.compiler.converters;
 using COOP.core.structures;
 
 namespace COOP.core.inheritence {
@@ -78,6 +84,16 @@ namespace COOP.core.inheritence {
 			public override int GetHashCode() {
 				return (@class != null ? @class.GetHashCode() : 0);
 			}
+			
+			public List<Node> linearization() {
+				var output = new List<Node> {this};
+
+				foreach (Node child in children) {
+					output.AddRange(child.linearization());
+				}
+
+				return output;
+			}
 		}
 
 		private Node head;
@@ -146,6 +162,11 @@ namespace COOP.core.inheritence {
 			return output;
 		}
 
+		public List<COOPClass> linearization() {
+			return (from f in head.linearization() select f.NodeClass).ToList();
+
+		}
+
 		private Node this[string className] => head.find(className);
 		private Node this[COOPClass className] => head.find(className);
 
@@ -156,5 +177,58 @@ namespace COOP.core.inheritence {
 		public COOPClass getClass(string className) => this[className].NodeClass;
 
 		public void print() => head.print(0);
+
+		public void createAllCFiles() {
+			createAllCFiles("");
+		}
+
+		public void createAllCFiles(string directory) {
+			var f = linearization();
+			COOPClassConverter c = new COOPClassConverter();
+			string mainMethod = "";
+			string mainHeader = "";
+			foreach (COOPClass coopClass in from h in f where h.genFile select h) {
+
+
+				Collection<FileConvertedInformation> fileConvertedInformations = c.convert(coopClass, this);
+				foreach (FileConvertedInformation fileConvertedInformation in fileConvertedInformations) {
+
+					if (fileConvertedInformation.hasMainMethod) {
+						mainHeader = fileConvertedInformation.IntendedFileName;
+						mainMethod = fileConvertedInformation.mainMethod;
+					}
+
+					StreamWriter w = File.CreateText(directory + fileConvertedInformation.IntendedFileName);
+					w.Write(fileConvertedInformation.FileContents);
+					w.Flush();
+					w.Close();
+				}
+			}
+
+			if (mainHeader != null & mainMethod != null) {
+				mainHeader += '"';
+				mainHeader = "\"" + mainHeader;
+
+				string string_location = "String_protected.h";
+
+				StreamWriter m = File.CreateText(directory + "main.c");
+				m.Write($@"
+#include {mainHeader}
+#include {string_location}
+
+int main(int argv, char* argc){{
+	struct String* strings = (struct String*) malloc(sizeof(struct String)*argv);
+	for(int i = 0; i < argv; i++){{
+		struct String s = {{.ptr = arc[i]}};
+		strings[i] = s;
+	}}
+	return {mainMethod}(strings);
+}}
+			");
+				m.Flush();
+				m.Close();
+			}
+
+		}
 	}
 }

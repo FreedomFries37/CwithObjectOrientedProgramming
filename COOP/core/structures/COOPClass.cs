@@ -22,7 +22,9 @@ namespace COOP.core.inheritence {
 		private static PrimitiveCOOPClass CharPtr;
 
 		public readonly List<COOPClass> imports = new List<COOPClass>();
-		
+
+		public bool genFile { get; set; } = true;
+
 		static COOPClass(){
 			
 			COOPFunction init = new COOPFunction("__init__", Base);
@@ -38,10 +40,15 @@ namespace COOP.core.inheritence {
 				new Dictionary<string, COOPClass>()
 			);
 			Base.functions["ToString"].AccessLevel = AccessLevel.Public;
+			Base.functions["ToString"].Body = "return &{.ptr=char[2]{&this, 0}};";
+			Base.functions["ToString"].bodyInC = true;
 			Base.functions["Print"].AccessLevel = AccessLevel.Public;
 			Base.functions["Print"].Body = "ToString().Print()";
 			Base.functions["PrintLn"].AccessLevel = AccessLevel.Public;
 			Base.functions["PrintLn"].Body = "ToString().PrintLn()";
+			Base.functions["__init__"].Body = "";
+			Base.functions["__init__"].AccessLevel = AccessLevel.Public;
+			Base.functions["__init__"].ReturnType = Base;
 			
 			CharPtr = new PrimitiveCOOPClass("char*");
 			String = new COOPClass("String", Base,
@@ -54,7 +61,7 @@ namespace COOP.core.inheritence {
 			String.functions.Add("PrintLn", new COOPFunction("PrintLn", Void));
 			String.functions.Add("ToString", new COOPFunction("ToString", String));
 			
-			String.addNonDefualtAccessLevel("ptr", AccessLevel.Public);
+			String.addNonDefualtAccessLevel("ptr", AccessLevel.Protected);
 			String.functions["ToString"].AccessLevel = AccessLevel.Public;
 			String.functions["ToString"].owner = String;
 			String.functions["ToString"].Body = "return this;";
@@ -67,7 +74,7 @@ namespace COOP.core.inheritence {
 			String.functions["PrintLn"].bodyInC = true;
 			String.functions["PrintLn"].Body = "\tprintf(\"%s\\n\", __this->ptr);";
 
-
+			Base.functions["ToString"].ReturnType = String;
 		}
 
 		public COOPClass(string name, COOPClass parent, Dictionary<string, COOPFunction> functions, Dictionary<string, COOPClass> varNames) {
@@ -125,6 +132,25 @@ namespace COOP.core.inheritence {
 			List<COOPFunction> output = new List<COOPFunction>();
 			output.AddRange(from f in Functions.Keys select Functions[f]);
 			return output;
+		}
+
+		public bool isStatic(string function) {
+			return functions[function].IsStatic;
+		}
+
+		protected bool Equals(COOPClass other) {
+			return string.Equals(name, other.name);
+		}
+
+		public override bool Equals(object obj) {
+			if (ReferenceEquals(null, obj)) return false;
+			if (ReferenceEquals(this, obj)) return true;
+			if (obj.GetType() != this.GetType()) return false;
+			return Equals((COOPClass) obj);
+		}
+
+		public override int GetHashCode() {
+			return (name != null ? name.GetHashCode() : 0);
 		}
 	}
 }

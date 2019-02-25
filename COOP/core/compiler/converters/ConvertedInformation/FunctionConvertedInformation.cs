@@ -13,6 +13,10 @@ namespace COOP.core.compiler {
 
 		public List<COOPClass> inputTypes { get; }
 
+		public string OriginalName { get; set; }
+		public string MangledName { get; set; }
+
+
 		public FunctionConvertedInformation(AccessLevel accessLevel, bool isStatic, string signature, string body, COOPClass returnType, List<COOPClass> inputTypes) {
 			this.accessLevel = accessLevel;
 			this.isStatic = isStatic;

@@ -4,7 +4,7 @@ using COOP.core.inheritence;
 
 
 namespace COOP.core.structures {
-	public class COOPArray : COOPClass, NonGenericCConversion{
+	public class COOPArray : COOPClass{
 
 		private COOPClass baseClass;
 		private uint length;
@@ -12,6 +12,7 @@ namespace COOP.core.structures {
 		public COOPArray(COOPClass baseClass, uint length) : base(baseClass.Name + "_array", Base, new Collection<COOPFunction> {bracketOperator(baseClass), getFunction(baseClass)}, new Dictionary<string, COOPClass>()) {
 			this.baseClass = baseClass;
 			this.length = length;
+			Functions["operator []"].AccessLevel = AccessLevel.Public;
 			Functions["get"].AccessLevel = AccessLevel.Public;
 		}
 
@@ -24,16 +25,8 @@ namespace COOP.core.structures {
 			return new COOPFunction("get", baseClass, new Dictionary<string, COOPClass> {{"index", COOPPrimitives.integer}}); 
 		}
 
-		public string convertToCNonGeneric() {
-			string output = "";
-			if (baseClass is NonGenericCConversion) {
-				output += ((NonGenericCConversion) baseClass).convertToCNonGeneric();
-			} else {
-				output += "struct " + baseClass.Name + "*";
-			}
-
-			output += $"[{length}]";
-			return output;
+		public override string convertToC() {
+			return baseClass.convertToC() + $"[{length}]";
 		}
 	}
 }

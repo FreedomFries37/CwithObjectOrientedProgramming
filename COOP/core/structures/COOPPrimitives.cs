@@ -22,10 +22,10 @@ namespace COOP.core.structures {
 			@short = new PrimitiveCOOPClass("short");
 			@byte = new PrimitiveCOOPClass("byte");
 			
-			@ulong = new PrimitiveCOOPClass("unsigned long");
-			uinteger = new PrimitiveCOOPClass("unsigned int");
-			@ushort = new PrimitiveCOOPClass("unsigned short");
-			@ubyte = new PrimitiveCOOPClass("unsigned byte");
+			@ulong = new PrimitiveCOOPClass("unsigned_long");
+			uinteger = new PrimitiveCOOPClass("unsigned_int");
+			@ushort = new PrimitiveCOOPClass("unsigned_short");
+			@ubyte = new PrimitiveCOOPClass("unsigned_byte");
 			
 			@float = new PrimitiveCOOPClass("float");
 			@double = new PrimitiveCOOPClass("double");

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,92 +10,9 @@ using COOP.core.structures;
 
 namespace COOP.core.compiler.converters {
 	public class COOPFunctionConverter : IConverter<COOPFunction, FunctionConvertedInformation> {
-		private class InputList : List<COOPClass> {
-			public InputList() { }
-			public InputList(IEnumerable<COOPClass> collection) : base(collection) { }
-			public InputList(int capacity) : base(capacity) { }
-
-			protected bool Equals(InputList other) {
-				return ListsEquals(this, other);
-			}
-			
-			private static bool ListsEquals(List<COOPClass> a, List<COOPClass> b) {
-				//if (List<COOPClass>.Equals(a, b)) return true;
-				if (a.Count != b.Count) return false;
-				for (var i = 0; i < a.Count; i++) {
-					if (!a[i].Equals(b[i])) return false;
-				}
-
-				return true;
-			}
-
-			public override bool Equals(object obj) {
-				if (ReferenceEquals(null, obj)) return false;
-				if (ReferenceEquals(this, obj)) return true;
-				if (obj.GetType() != this.GetType()) return false;
-				return Equals((InputList) obj);
-			}
-
-			public override int GetHashCode() {
-				int output = 0;
-				foreach (COOPClass coopClass in this) {
-					output += coopClass.Name.GetHashCode() * 397;
-				}
-
-				return output;
-			}
-			
-			
-		}
-		
-		private class NameInputTypePair {
-			public string name { get; }
-			public InputList inputs { get; }
-
-			public NameInputTypePair(string name, List<COOPClass> inputs) {
-				this.name = name;
-				this.inputs = new InputList(inputs);
-			}
-
-			protected bool Equals(NameInputTypePair other) {
-				return string.Equals(name, other.name) && Equals(inputs, other.inputs);
-			}
-
-			
-
-			public override bool Equals(object obj) {
-				if (ReferenceEquals(null, obj)) return false;
-				if (ReferenceEquals(this, obj)) return true;
-				if (obj.GetType() != this.GetType()) return false;
-				return Equals((NameInputTypePair) obj);
-			}
-
-			public override int GetHashCode() {
-				unchecked {
-					return ((name != null ? name.GetHashCode() : 0) * 397) ^ (inputs != null ? inputs.GetHashCode() : 0);
-				}
-			}
-
-			private sealed class NameInputsEqualityComparer : IEqualityComparer<NameInputTypePair> {
-				public bool Equals(NameInputTypePair x, NameInputTypePair y) {
-					if (ReferenceEquals(x, y)) return true;
-					if (ReferenceEquals(x, null)) return false;
-					if (ReferenceEquals(y, null)) return false;
-					if (x.GetType() != y.GetType()) return false;
-					return string.Equals(x.name, y.name) && x.inputs.Equals(y.inputs);
-				}
-
-				public int GetHashCode(NameInputTypePair obj) {
-					unchecked {
-						return ((obj.name != null ? obj.name.GetHashCode() : 0) * 397) ^ (obj.inputs != null ? obj.inputs.GetHashCode() : 0);
-					}
-				}
-			}
-
-			public static IEqualityComparer<NameInputTypePair> nameInputsComparer { get; } = new NameInputsEqualityComparer();
-		}
 		private readonly Dictionary<NameInputTypePair, string> originalNameAndInputTypesToMangledName;
 		private readonly Dictionary<NameInputTypePair, bool> originalNameAndInputTypesToisStatic;
+		private readonly Dictionary<string, COOPClass> functionToReturnType;
 		private readonly List<COOPClass> availableClasses;
 		private COOPClass parentClass;
 
@@ -104,6 +20,7 @@ namespace COOP.core.compiler.converters {
 		
 
 		private class TypeName {
+			
 			public COOPClass @class{ get; set; }
 			public string name { get; set; }
 
@@ -118,6 +35,7 @@ namespace COOP.core.compiler.converters {
 			this.parentClass = parentClass;
 			originalNameAndInputTypesToMangledName = new Dictionary<NameInputTypePair, string>(NameInputTypePair.nameInputsComparer);
 			originalNameAndInputTypesToisStatic = new Dictionary<NameInputTypePair, bool>();
+			functionToReturnType = new Dictionary<string,COOPClass>();
 			availableClasses = hierarchy.getLineage(parentClass);
 			availableClasses.AddRange(parentClass.imports);
 			generateDictionaries();
@@ -128,10 +46,11 @@ namespace COOP.core.compiler.converters {
 			AccessLevel accessLevel = coopObject.AccessLevel;
 			bool isStatic = coopObject.IsStatic;
 			string signature = generateSignature(coopObject);
-			string body = coopObject.bodyInC? coopObject.Body : fixBody(coopObject.Body, generateTypeNames(coopObject));
+			string body = coopObject.bodyInC? coopObject.Body : fixBody(coopObject.Body, generateTypeNames(coopObject), coopObject.IsStatic);
 			
 			FunctionConvertedInformation functionConvertedInformation = new FunctionConvertedInformation
 				(accessLevel, isStatic, signature, body, coopObject.ReturnType, coopObject.InputTypes);
+			functionConvertedInformation.OriginalName = coopObject.Name;
 			
 			return new Collection<FunctionConvertedInformation> {functionConvertedInformation};
 		}
@@ -206,20 +125,34 @@ namespace COOP.core.compiler.converters {
 			return value;
 		}
 
-		private string fixBody(string originalBody, List<TypeName> existingInformation) {
+		private string fixBody(string originalBody, List<TypeName> existingInformation, bool parentFunctionIsStatic) {
 			string modified = originalBody;
+
+			
+			
 			Regex blocks = new Regex(@"{.*}");
 			//string[] outOfBlocks = Regex.Split(modified, "\\{.*\\}");
 			
 			
 			Dictionary<string, COOPClass> vars = new Dictionary<string, COOPClass>();
+			
+			if (!parentFunctionIsStatic) {
+				foreach (var parentClassVarName in parentClass.VarNames.Keys) {
+
+					vars.TryAdd(parentClassVarName, parentClass.VarNames[parentClassVarName]);
+				}
+
+			}
+			
 			foreach (TypeName typeName in existingInformation) {
+				vars.TryAdd(typeName.name.Remove(0, 2), typeName.@class);
 				vars.Add(typeName.name, typeName.@class);
 			}
 			
 			// Fix Variables
 			Regex declareOnly = new Regex(@"(?<type>\w+)(\s+(?<names>\w+(,\s*\w+\s*)*));");
 			Regex declareAndAssign = new Regex(@"(?<type>\w+)\s+(?<name>\w+)\s*=\s*[^;]+;");
+			
 			foreach (Match match in declareOnly.Matches(modified)) {
 				string type = match.Groups["type"].Value;
 				if(ReservedWords.isReserved(type)) continue;
@@ -230,7 +163,7 @@ namespace COOP.core.compiler.converters {
 					vars.Add(dec, coopClass);
 				}
 
-				modified = modified.Replace(type, coopClass.convertToC());
+				modified = modified.Replace(type, coopClass.convertToC() + " ");
 			}
 			
 			foreach (Match match in declareAndAssign.Matches(modified)) {
@@ -238,7 +171,8 @@ namespace COOP.core.compiler.converters {
 				string name = match.Groups["name"].Value;
 				COOPClass coopClass = classHierarchy.getClass(type);
 				vars.Add(name, coopClass);
-				modified = modified.Replace(type, coopClass.convertToC());
+				modified = Regex.Replace(modified, $"\\s+{type}\\s+", coopClass.convertToC() +" ");
+				
 			}
 			
 			foreach (COOPClass availableClass in availableClasses) {
@@ -248,10 +182,28 @@ namespace COOP.core.compiler.converters {
 			
 			//Fix all input parameters to correct types
 			foreach (TypeName typeName in existingInformation) {
+			
 				modified = $"\t{typeName.@class.convertToC()} {typeName.name.Remove(0, 2)} = ({typeName.@class.convertToC()}) {typeName.name};\n" + modified;
 			}
 			
-			Regex functionCall = new Regex ("(?<caller>\\w+)\\s*\\.\\s*(?<function>\\w+)\\s*\\((?<inputs>\\s*(\\w+|\"[^\"]*\"|'.')\\s*(,\\s*(\\w+|\"[^\"]*\"|'.')\\s*)*)?\\)");
+			//Regex functionCall = new Regex ("(?<caller>\\.+)\\s*\\.\\s*(?<function>\\w+)\\s*\\((?<inputs>\\s*(\\w+|\"[^\"]*\"|'.')\\s*(,\\s*(\\w+|\"[^\"]*\"|'.')\\s*)*)?\\)");
+			Regex functionCall = new Regex ("[a-zA-Z_]\\w*\\s*(\\(.*\\))\\s*?(\\.\\s*[a-zA-Z_]\\w*(\\(.*\\))?)+");
+
+			FunctionCallConverter functionCallConverter = 
+				new FunctionCallConverter(originalNameAndInputTypesToMangledName, 
+				originalNameAndInputTypesToisStatic, 
+				functionToReturnType, 
+				availableClasses,
+				vars);
+			functionCallConverter.parentClass = parentClass;
+			functionCallConverter.hierarchy = classHierarchy;
+			foreach (Match match in functionCall.Matches(modified)) {
+				string f = match.Value;
+				string fixedStr = functionCallConverter.convert(f, classHierarchy)[0].ConvertedFunctionCall;
+				modified = modified.Replace(match.Value, fixedStr);
+				
+			}
+			/*
 			foreach (Match match in functionCall.Matches(modified)) {
 				string functionName = match.Groups["function"].Value;
 				string inputsFull = match.Groups["inputs"].Value;
@@ -279,24 +231,29 @@ namespace COOP.core.compiler.converters {
 					}
 				}
 
+				
 				string name = getMangledName(functionName, inputTypes);
+				
+				string callerSymbol = match.Groups["caller"].Value;
 				bool isStatic = getIsStatic(functionName, inputTypes);
-				if (name == "") {
-					inputTypes.Insert(0, null);
-					var line = classHierarchy.getLineage(parentClass);
-					line.Reverse();
-					foreach (COOPClass coopClass in line) {
-						inputTypes[0] = coopClass;
-						name = getMangledName(functionName, inputTypes);
-						if (name != "") break;
+				if (!isStatic) {
+					
+					
+					if (name == "") {
+						inputTypes.Insert(0, null);
+						var line = classHierarchy.getLineage(vars[callerSymbol]);
+						line.Reverse();
+						foreach (COOPClass coopClass in line) {
+							inputTypes[0] = coopClass;
+							name = getMangledName(functionName, inputTypes);
+							if (name != "") break;
+						}
 					}
-					
-					
 				}
 
 				string inputParams = match.Groups["inputs"].Value;
 				if (!isStatic) {
-					string callerSymbol = match.Groups["caller"].Value;
+					
 					if(!(from f in existingInformation select f.name).Contains(callerSymbol) &&
 					   !vars.ContainsKey(callerSymbol)) {
 						callerSymbol = "this->" + callerSymbol;
@@ -311,7 +268,7 @@ namespace COOP.core.compiler.converters {
 				temp += modified.Substring(index + match.Value.Length);
 				modified = temp;
 			}
-
+			*/
 
 			
 
@@ -319,7 +276,56 @@ namespace COOP.core.compiler.converters {
 			return modified;
 		}
 
-	
+		private string fixFunctionCall(string coopFunctionCall, Dictionary<string, COOPClass> vars) {
+			Regex functionRegex = new Regex ("(?<caller>\\.*)\\s*\\.\\s*(?<function>\\w+)\\s*\\((?<inputs>\\s*(\\w+|\"[^\"]*\"|'.')\\s*(,\\s*(\\w+|\"[^\"]*\"|'.')\\s*)*)?\\)");
+			Match match = functionRegex.Match(coopFunctionCall);
+			if (!match.Value.Equals(coopFunctionCall)) return "";
+			string caller = match.Groups["caller"].Value;
+
+			string functionName = match.Groups["function"].Value;
+			string inputsFull = match.Groups["inputs"].Value;
+			string[] inputs = Regex.Split(inputsFull, "\\s*,\\s*");
+			
+			Regex symbol = new Regex("\\w+"), character = new Regex("'.'"), @string = new Regex("\".*\"");
+			Regex integer = new Regex("\\d+.?");
+			Regex floatingPoint = new Regex("\\d+\\.\\d+");
+			List<COOPClass> inputTypes = new List<COOPClass>();
+			foreach (string input in from s in inputs select "__" + s) {
+					
+				if (@string.IsMatch(input)) {
+					inputTypes.Add(COOPClass.String);
+				}else if (character.IsMatch(input)) {
+					inputTypes.Add(COOPPrimitives.@byte);
+				}else if (integer.IsMatch(input)) {
+					inputTypes.Add(COOPPrimitives.integer);
+				}else if (floatingPoint.IsMatch(input)) {
+					inputTypes.Add(COOPPrimitives.@float);
+				}else if (symbol.IsMatch(input)) {
+						
+					if(vars.TryGetValue(input, out COOPClass type)){
+						inputTypes.Add(type);
+					}
+				}
+			}
+
+
+			bool isStatic = getIsStatic(functionName, inputTypes);
+
+			if (!isStatic) {
+				if (functionRegex.IsMatch(caller)) {
+					string func = functionRegex.Match(caller).Value;
+					string fixedFunc = fixFunctionCall(func, vars);
+					
+				} else if (symbol.IsMatch(caller)) {
+					
+				} else {
+					return "";
+				}
+			}
+
+
+			return "";
+		}
 
 		private List<string> getAvailableMangledNames(COOPClass coopClass) {
 			List<COOPFunction> functions = getAvailableFunctions(coopClass, classHierarchy);
@@ -348,6 +354,8 @@ namespace COOP.core.compiler.converters {
 		private void generateDictionaries() {
 			List<COOPFunction> availableFunctions = getAvailableFunctions(parentClass, classHierarchy);
 			foreach (COOPFunction availableFunction in availableFunctions) {
+				if(!functionToReturnType.ContainsKey(availableFunction.Name))
+					functionToReturnType.Add(availableFunction.Name, availableFunction.ReturnType);
 				List<COOPClass> inputTypes = new List<COOPClass>(availableFunction.InputTypes);
 				if(!availableFunction.IsStatic) inputTypes.Insert(0, availableFunction.owner);
 				addFunctionToMangledNameDictionary(availableFunction.Name, inputTypes, generateFunctionName(availableFunction));

@@ -8,7 +8,7 @@ namespace COOP.core {
 
 		private string name;
 		private bool hasReturnType;
-		private COOPClass returnType;
+		public COOPClass ReturnType { get; set; }
 		private List<COOPClass> inputTypes;
 		private Dictionary<string, COOPClass> varNames;
 		private AccessLevel accessLevel = 0;
@@ -24,7 +24,7 @@ namespace COOP.core {
 			this.name = name;
 			this.inputTypes = inputTypes;
 			this.varNames = varNames;
-			this.returnType = returnType;
+			this.ReturnType = returnType;
 			hasReturnType = true;
 		}
 		
@@ -32,7 +32,7 @@ namespace COOP.core {
 			this.name = name;
 			this.inputTypes = new List<COOPClass>(varNames.Values);
 			this.varNames = varNames;
-			this.returnType = returnType;
+			this.ReturnType = returnType;
 			hasReturnType = true;
 		}
 		
@@ -45,7 +45,7 @@ namespace COOP.core {
 		
 		public COOPFunction(string name, COOPClass returnType, List<KeyValuePair<string, COOPClass>> vars = null) {
 			this.name = name;
-			this.returnType = returnType;
+			this.ReturnType = returnType;
 			hasReturnType = true;
 			inputTypes = new List<COOPClass>();
 			varNames = new Dictionary<string, COOPClass>();
@@ -72,8 +72,6 @@ namespace COOP.core {
 		public List<COOPClass> InputTypes => inputTypes;
 
 		public bool HasReturnType => hasReturnType;
-
-		public COOPClass ReturnType => returnType;
 
 		public Dictionary<string, COOPClass> VarNames => varNames;
 
