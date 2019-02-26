@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using System.Threading;
+using COOP.core.compiler.converters.ConvertedInformation;
 using COOP.core.inheritence;
 using COOP.core.structures;
 

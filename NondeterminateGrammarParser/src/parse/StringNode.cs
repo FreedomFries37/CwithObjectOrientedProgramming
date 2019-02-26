@@ -25,7 +25,7 @@ namespace NondeterminateGrammarParser.parse {
 			return value;
 		}
 
-		public override void Convert(AbstractNodeConverter converter) {
+		public override void Convert(AbstractNodeReTooler reTooler) {
 			
 		}
 	}

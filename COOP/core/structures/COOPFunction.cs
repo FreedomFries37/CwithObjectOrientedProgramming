@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using COOP.core.inheritence;
 
-namespace COOP.core {
+namespace COOP.core.structures {
 	public class COOPFunction {
 
 		private string name;

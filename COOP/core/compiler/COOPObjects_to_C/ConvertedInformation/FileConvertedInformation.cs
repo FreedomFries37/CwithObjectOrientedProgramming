@@ -1,4 +1,4 @@
-namespace COOP.core.compiler {
+namespace COOP.core.compiler.converters.ConvertedInformation {
 	public class FileConvertedInformation : ConvertedInformation{
 		private string intendedFileName;
 		private string fileContents;

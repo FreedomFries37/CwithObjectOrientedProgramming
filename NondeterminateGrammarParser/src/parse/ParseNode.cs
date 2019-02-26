@@ -84,12 +84,12 @@ namespace NondeterminateGrammarParser.parse {
 			}
 		}
 
-		public abstract void Convert(AbstractNodeConverter converter);
+		public abstract void Convert(AbstractNodeReTooler reTooler);
 
-		public void ConvertAll(AbstractNodeConverter converter) {
-			Convert(converter);
+		public void ConvertAll(AbstractNodeReTooler reTooler) {
+			Convert(reTooler);
 			foreach (ParseNode parseNode in children) {
-				parseNode.Convert(converter);
+				parseNode.Convert(reTooler);
 			}
 		}
 

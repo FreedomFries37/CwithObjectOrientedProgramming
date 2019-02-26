@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using COOP.core.inheritence;
+using COOP.core.structures;
 
-namespace COOP.core.compiler {
+namespace COOP.core.compiler.converters.ConvertedInformation {
 	public class FunctionConvertedInformation : ConvertedInformation{
 
 		public AccessLevel accessLevel { get; }

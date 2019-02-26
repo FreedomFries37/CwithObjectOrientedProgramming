@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq.Expressions;
-using System.Net;
 using System.Text.RegularExpressions;
-using System.Transactions;
-using COOP.core.compiler.converters;
-using COOP.core.compiler.converters.parsing;
+using COOP.core.compiler.converters.ConvertedInformation;
+using COOP.core.compiler.parsing;
 using COOP.core.inheritence;
+using COOP.core.structures;
 
-namespace COOP.core.compiler {
+namespace COOP.core.compiler.converters {
 	public class FunctionCallConverter : IConverter<string, FunctionCallConvertedInformation> {
 		
 		private readonly Dictionary<NameInputTypePair, string> originalNameAndInputTypesToMangledName;

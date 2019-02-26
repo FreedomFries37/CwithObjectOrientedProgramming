@@ -1,14 +1,8 @@
-﻿
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 
-namespace COOP.core.compiler.converters.parsing {
+namespace COOP.core.compiler.parsing {
 	public delegate bool ParserFunction(out ParseNode node);
 
 	public delegate bool InternalParserFunction(ParseNode node);

@@ -2,19 +2,20 @@ using NondeterminateGrammarParser.parse.exceptions;
 using NondeterminateGrammarParser.parse.syntactic;
 
 namespace NondeterminateGrammarParser.parse {
-	public abstract class AbstractNodeConverter{
+	public abstract class AbstractNodeConverter<T> {
 
-		public string InputCategory { get; }
+		public string convertCategory { get; }
 
-		protected AbstractNodeConverter(string inputCategory) {
-			InputCategory = inputCategory;
+		protected AbstractNodeConverter(string convertCategory) {
+			this.convertCategory = convertCategory;
 		}
 
-		public void convert(CategoryNode node) {
-			if(node.category.name != InputCategory) throw new IncorrectParseNodeCategoryException(node.category.ToString(), InputCategory);
-			convertNode(node);
+		public T convert(CategoryNode n) {
+			if(n.category.name != convertCategory) throw new IncorrectParseNodeCategoryException(n.category.name, convertCategory);
+			return convertNode(n);
 		}
 
-		public abstract void convertNode(CategoryNode node);
+		protected abstract T convertNode(CategoryNode n);
 	}
+	
 }

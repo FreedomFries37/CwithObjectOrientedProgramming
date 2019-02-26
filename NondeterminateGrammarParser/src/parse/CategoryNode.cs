@@ -43,9 +43,9 @@ namespace NondeterminateGrammarParser.parse {
 			return output;
 		}
 
-		public override void Convert(AbstractNodeConverter converter) {
+		public override void Convert(AbstractNodeReTooler reTooler) {
 			try {
-				converter.convert(this);
+				reTooler.retool(this);
 			}
 			catch (IncorrectParseNodeCategoryException) { }
 		}

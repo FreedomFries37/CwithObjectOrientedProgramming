@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Net;
-using System.Runtime.CompilerServices;
-using COOP.core;
-using COOP.core.compiler;
 using COOP.core.compiler.converters;
-using COOP.core.compiler.full_parsing;
+using COOP.core.compiler.COOP_file_to_COOP_objects;
 using COOP.core.inheritence;
 using COOP.core.structures;
-using NondeterminateGrammarParser;
-using NondeterminateGrammarParser.parse;
-using NondeterminateGrammarParser.parse.syntactic;
 
-namespace COOP {
+namespace COOP.core {
 	class Program {
 		static void Main(string[] args) {
+
+
+			if (args.Length > 0) {
+				COOPClassParser parser =new COOPClassParser();
+				for (var i = 0; i < args.Length; i++) {
+					parser.parseFile(args[i])?.print();
+				}
+				
+				return;
+			}
 			
-			SyntacticCategories cats = new SyntacticCategories();
-			Category c = cats.start;
 			
-			PushdownAutomata a = new PushdownAutomata(new string[0], "hello0", c);
-			ParseNode parseNode = a.parse();
-			parseNode.print();
-			parseNode.clean("symbol");
-			parseNode.print();
+			
 			
 
 			COOPClassConverter converter = new COOPClassConverter();
@@ -69,7 +64,7 @@ namespace COOP {
 			converter.convert(COOPClass.String, heiarchy);
 			heiarchy.addClass(testClass);
 			
-			heiarchy.createAllCFiles();
+			//heiarchy.createAllCFiles();
 			
 			/*
 			foreach (FileConvertedInformation fileConvertedInformation in converter.convert(testClass, heiarchy)) {

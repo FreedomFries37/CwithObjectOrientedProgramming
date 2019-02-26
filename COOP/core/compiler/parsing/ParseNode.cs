@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
-
-namespace COOP.core.compiler.converters.parsing {
+namespace COOP.core.compiler.parsing {
 	public class ParseNode {
 
 		private string data;

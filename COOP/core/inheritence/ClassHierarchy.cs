@@ -7,6 +7,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using COOP.core.compiler;
 using COOP.core.compiler.converters;
+using COOP.core.compiler.converters.ConvertedInformation;
 using COOP.core.structures;
 
 namespace COOP.core.inheritence {

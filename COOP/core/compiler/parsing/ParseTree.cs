@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-
-namespace COOP.core.compiler.converters.parsing {
+namespace COOP.core.compiler.parsing {
 	public class ParseTree {
 		private ParseNode head;
 		public readonly bool successfulParse;

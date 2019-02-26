@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using COOP.core.compiler.converters.parsing;
+using COOP.core.compiler.parsing;
 using COOP.core.inheritence;
+using COOP.core.structures;
 
 namespace COOP.core.compiler.converters {
 	public class CallChain {

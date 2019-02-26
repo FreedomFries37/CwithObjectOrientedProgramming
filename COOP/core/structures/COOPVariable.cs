@@ -1,6 +1,4 @@
-using COOP.core.inheritence;
-
-namespace COOP.core {
+namespace COOP.core.structures {
 	public abstract class COOPVariable {
 
 		private string name;

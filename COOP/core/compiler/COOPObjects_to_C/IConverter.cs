@@ -3,7 +3,7 @@ using COOP.core.inheritence;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace COOP.core.compiler.converters {
-	public interface IConverter<T, R> where R : ConvertedInformation {
+	public interface IConverter<T, R> where R : ConvertedInformation.ConvertedInformation {
 		
 		Collection<R> convert(T coopObject, ClassHierarchy hierarchy);
 	}

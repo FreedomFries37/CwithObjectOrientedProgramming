@@ -1,7 +1,4 @@
-using System.Transactions;
-using COOP.core.compiler.converters.parsing;
-
-namespace COOP.core.compiler.converters.parsing {
+namespace COOP.core.compiler.parsing {
 	public partial class Parser {
 
 

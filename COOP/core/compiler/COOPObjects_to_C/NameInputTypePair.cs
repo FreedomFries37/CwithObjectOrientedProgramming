@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using COOP.core.inheritence;
+using COOP.core.structures;
 
 namespace COOP.core.compiler.converters {
 	public class NameInputTypePair {

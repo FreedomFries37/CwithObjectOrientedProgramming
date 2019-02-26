@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using NondeterminateGrammarParser.parse;
 using NondeterminateGrammarParser.parse.syntactic;
 
@@ -192,18 +193,23 @@ namespace NondeterminateGrammarParser {
 		}
 
 		public string[] split(string s) {
-			List<string> output = new List<string> {s};
+			List<string> output = Regex.Split(s, "\\s+").ToList();
+			
 			for (var i = 0; i < delimiters.Length; i++) {
 				string delim = delimiters[i];
-				for (var j = 0; j < output.Count; j++) {
+				for (var j = 0; j < output.Count;) {
 					string w = output[j];
-					string[] split = w.Split(delim);
+					List<string> split = w.Split(delim).ToList();
+					for (var k = split.Count - 1; k > 0; k--) {
+						split.Insert(k, delim);
+					}
 					output.RemoveAt(j);
 					output.InsertRange(j, split);
-					j += split.Length - 1;
+					j += split.Count;
 				}
 			}
 
+			output.RemoveAll(x => x == "");
 			return output.ToArray();
 		}
 
