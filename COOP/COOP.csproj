@@ -9,4 +9,8 @@
 	  <ProjectReference Include="..\NondeterminateGrammarParser\NondeterminateGrammarParser.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="core\compiler\exceptions" />
+	</ItemGroup>
+
 </Project>

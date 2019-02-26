@@ -24,5 +24,9 @@ namespace NondeterminateGrammarParser.parse {
 		protected override string getTerminals() {
 			return value;
 		}
+
+		public override void Convert(AbstractNodeConverter converter) {
+			
+		}
 	}
 }

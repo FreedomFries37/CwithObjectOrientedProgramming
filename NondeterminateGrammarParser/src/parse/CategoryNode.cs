@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading;
+using NondeterminateGrammarParser.parse.exceptions;
 using NondeterminateGrammarParser.parse.syntactic;
 
 namespace NondeterminateGrammarParser.parse {
@@ -40,6 +41,13 @@ namespace NondeterminateGrammarParser.parse {
 			}
 
 			return output;
+		}
+
+		public override void Convert(AbstractNodeConverter converter) {
+			try {
+				converter.convert(this);
+			}
+			catch (IncorrectParseNodeCategoryException) { }
 		}
 
 		public override string ToString() {

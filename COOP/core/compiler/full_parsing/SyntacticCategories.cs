@@ -19,6 +19,8 @@ namespace COOP.core.compiler.full_parsing {
 		public static Category objectFunction { get; } //guaranteed to end in function
 
 		public static Category objectAccess { get; } //ends in either
+		
+		
 
 
 
