@@ -1,0 +1,5 @@
+c_file="example.c"
+
+class Rectangle:
+	public uint getSize() : unsigned int get_size_rectangle(struct Rectangle* rect)
+	

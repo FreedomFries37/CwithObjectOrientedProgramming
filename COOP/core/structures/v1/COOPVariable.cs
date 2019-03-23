@@ -1,4 +1,4 @@
-namespace COOP.core.structures {
+namespace COOP.core.structures.v1 {
 	public abstract class COOPVariable {
 
 		private string name;

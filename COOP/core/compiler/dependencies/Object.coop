@@ -1,0 +1,8 @@
+class Object[NONE]{
+	
+	extern private long ptr;
+	
+	extern public Object();
+	
+	extern String toString();
+}

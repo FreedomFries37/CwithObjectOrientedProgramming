@@ -1,19 +1,27 @@
 using System;
 using System.Collections.Generic;
-using COOP.core.inheritence;
-using COOP.core.structures;
+using COOP.core.structures.v2.global.type;
 
-namespace COOP.core.compiler.converters {
-	public class InputList : List<COOPClass> {
+namespace COOP.core.structures.v2.global {
+	public class InputList : List<COOPType> {
 		public InputList() { }
-		public InputList(IEnumerable<COOPClass> collection) : base(collection) { }
+		public InputList(IEnumerable<COOPType> collection) : base(collection) { }
 		public InputList(int capacity) : base(capacity) { }
+
+		public InputList(params COOPObject[] objects) {
+			foreach (COOPObject coopObject in objects) {
+				Add(coopObject.actualType);
+			}
+			
+		}
+
+		public InputList(List<COOPObject> objects) : this(objects.ToArray()) { }
 
 		protected bool Equals(InputList other) {
 			return ListsEquals(this, other);
 		}
 			
-		private static bool ListsEquals(List<COOPClass> a, List<COOPClass> b) {
+		private static bool ListsEquals(List<COOPType> a, List<COOPType> b) {
 			//if (List<COOPClass>.Equals(a, b)) return true;
 			if (a.Count != b.Count) return false;
 			for (var i = 0; i < a.Count; i++) {
@@ -33,7 +41,7 @@ namespace COOP.core.compiler.converters {
 		public override int GetHashCode() {
 			unchecked {
 				int output = 0;
-				foreach (COOPClass coopClass in this) {
+				foreach (COOPType coopClass in this) {
 					output += coopClass.Name.GetHashCode() * 397;
 				}
 
@@ -45,5 +53,7 @@ namespace COOP.core.compiler.converters {
 		public override string ToString() {
 			return "{" + String.Join(",", this) + "}";
 		}
+		
+		
 	}
 }

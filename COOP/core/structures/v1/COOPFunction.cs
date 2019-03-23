@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using COOP.core.inheritence;
+using COOP.core.structures.v2.global.modifiers;
 
-namespace COOP.core.structures {
+namespace COOP.core.structures.v1 {
 	public class COOPFunction {
 
 		private string name;

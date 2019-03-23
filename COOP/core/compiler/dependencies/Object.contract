@@ -1,0 +1,5 @@
+c_file="Object.c"
+
+class Object:
+	public Object() : struct Object* __init__Object(struct Object*)
+	public String toString() : struct String* toStringObject(struct Object*)

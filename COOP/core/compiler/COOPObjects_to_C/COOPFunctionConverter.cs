@@ -8,6 +8,8 @@ using System.Threading;
 using COOP.core.compiler.converters.ConvertedInformation;
 using COOP.core.inheritence;
 using COOP.core.structures;
+using COOP.core.structures.v1;
+using COOP.core.structures.v2.global.modifiers;
 
 namespace COOP.core.compiler.converters {
 	public class COOPFunctionConverter : IConverter<COOPFunction, FunctionConvertedInformation> {

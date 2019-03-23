@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using COOP.core.inheritence;
+using COOP.core.structures.v2.global.modifiers;
 
-namespace COOP.core.structures {
+namespace COOP.core.structures.v1 {
+	[Obsolete]
 	public class COOPClass {
 		
 	

@@ -9,6 +9,7 @@ using COOP.core.compiler;
 using COOP.core.compiler.converters;
 using COOP.core.compiler.converters.ConvertedInformation;
 using COOP.core.structures;
+using COOP.core.structures.v1;
 
 namespace COOP.core.inheritence {
 	public class ClassHierarchy {

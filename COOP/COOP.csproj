@@ -10,7 +10,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="core\compiler\dependencies\support_structures" />
 	  <Folder Include="core\compiler\exceptions" />
+	  <Folder Include="core\structures\v2\functions\statements\control_flow" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="core\structures\v1\**" />
+	  <Compile Remove="core\inheritence\**" />
+	  <Compile Remove="core\compiler\COOPObjects_to_C\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Remove="core\structures\v1\**" />
+	  <EmbeddedResource Remove="core\inheritence\**" />
+	  <EmbeddedResource Remove="core\compiler\COOPObjects_to_C\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="core\structures\v1\**" />
+	  <None Remove="core\inheritence\**" />
+	  <None Remove="core\compiler\COOPObjects_to_C\**" />
 	</ItemGroup>
 
 </Project>

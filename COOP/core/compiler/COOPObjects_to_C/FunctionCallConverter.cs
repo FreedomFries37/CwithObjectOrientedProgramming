@@ -6,6 +6,7 @@ using COOP.core.compiler.converters.ConvertedInformation;
 using COOP.core.compiler.parsing;
 using COOP.core.inheritence;
 using COOP.core.structures;
+using COOP.core.structures.v1;
 
 namespace COOP.core.compiler.converters {
 	public class FunctionCallConverter : IConverter<string, FunctionCallConvertedInformation> {

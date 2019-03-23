@@ -1,0 +1,16 @@
+// classes
+struct Child{
+	struct Super super;
+	struct class_info class_info;
+	struct function_references *functions; //use only if non_determinate
+	struct Child_external_references external;
+	struct child_protected* protected;
+	struct child_private* private;
+	... Child fields
+};
+
+// interfaces????
+struct interface_Child{
+	
+}
+

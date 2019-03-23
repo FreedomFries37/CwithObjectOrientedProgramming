@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using COOP.core.inheritence;
 
-namespace COOP.core.structures {
+namespace COOP.core.structures.v1 {
 	public class PrimitiveCOOPClass : COOPClass {
 		public PrimitiveCOOPClass(string name) : base(name, Base, new Collection<COOPFunction>(),
 			new Dictionary<string, COOPClass>()) {

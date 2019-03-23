@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using COOP.core.inheritence;
+
 using NondeterminateGrammarParser.parse.syntactic;
 
 namespace COOP.core.compiler.COOP_file_to_COOP_objects {

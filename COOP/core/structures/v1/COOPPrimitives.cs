@@ -1,6 +1,4 @@
-using COOP.core.inheritence;
-
-namespace COOP.core.structures {
+namespace COOP.core.structures.v1 {
 	public partial class COOPPrimitives {
 		public static COOPClass @long;
 		public static COOPClass integer;

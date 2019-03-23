@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using COOP.core.inheritence;
 using COOP.core.structures;
+using COOP.core.structures.v1;
+using COOP.core.structures.v2.global.modifiers;
 
 namespace COOP.core.compiler.converters.ConvertedInformation {
 	public class FunctionConvertedInformation : ConvertedInformation{

@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using COOP.core.compiler.parsing;
 using COOP.core.inheritence;
 using COOP.core.structures;
+using COOP.core.structures.v1;
 
 namespace COOP.core.compiler.converters {
 	public class CallChain {
