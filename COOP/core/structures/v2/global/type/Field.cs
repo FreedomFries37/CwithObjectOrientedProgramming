@@ -1,7 +1,7 @@
 using COOP.core.structures.v2.global.modifiers;
 
 namespace COOP.core.structures.v2.global.type {
-	public class Field {
+	public class Field{
 
 		public Modifiers modifiers { get; }
 		public COOPType type { get; }
@@ -12,5 +12,7 @@ namespace COOP.core.structures.v2.global.type {
 			this.type = type;
 			this.name = name;
 		}
+
+		
 	}
 }

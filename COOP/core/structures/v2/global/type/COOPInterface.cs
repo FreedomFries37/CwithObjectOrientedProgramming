@@ -10,7 +10,7 @@ namespace COOP.core.structures.v2.global.type {
 
 		public List<COOPAbstract> importedClasses { get; }
 		public List<COOPInterface> parentInterfaces { get; }
-		private Dictionary<string, COOPFunction> abstractFunctions;
+		protected Dictionary<string, COOPFunction> abstractFunctions;
 
 		public COOPInterface(string name) : base(name) { }
 		
@@ -46,6 +46,10 @@ namespace COOP.core.structures.v2.global.type {
 			}
 			foreach (COOPFunction functionsValue in abstractFunctions.Values) {
 				output.AddRange(functionsValue.getAvailableCalls(accessLevel));
+			}
+			
+			foreach (COOPFunction abstractFunctionsValue in abstractFunctions.Values) {
+				output.AddRange(abstractFunctionsValue.getAvailableCalls(accessLevel));
 			}
 
 			return output;

@@ -6,6 +6,10 @@ namespace COOP.core.structures.v2.global.type {
 			Name = name;
 		}
 
+		public virtual string defaultValue() {
+			return "NULL";
+		}
+
 		public abstract bool isParent(COOPType type);
 
 		public virtual bool isStrictlyInterface() => false;

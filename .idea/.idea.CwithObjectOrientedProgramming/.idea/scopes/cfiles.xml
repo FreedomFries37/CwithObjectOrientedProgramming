@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="cfiles" pattern="file:COOP/core/compiler/dependencies/support_structures/function_references.c||file:COOP/core/compiler/dependencies/support_structures/function_references.h" />
+</component>

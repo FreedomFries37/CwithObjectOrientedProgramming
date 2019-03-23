@@ -50,7 +50,7 @@ namespace COOP.core.structures.v2.functions {
 
 		public List<FunctionCall> getAvailableCalls(AccessLevel level) {
 			return new List<FunctionCall>(
-				from f in bodies where f.modifiers.accessLevel >= level select new FunctionCall(this, f)
+				from f in bodies where AccessLevelMethods.canAccess(level, f.modifiers.accessLevel, AccessLevelRule.@equals) select new FunctionCall(this, f)
 				);
 		}
 

@@ -1,16 +1,17 @@
 // classes
-struct Child{
+typedef struct Child{
 	struct Super super;
-	struct class_info class_info;
+	struct type_info t_info;
 	struct function_references *functions; //use only if non_determinate
 	struct Child_external_references external;
-	struct child_protected* protected;
-	struct child_private* private;
+	struct Child_protected* protected;
+	struct Child_private* private;
 	... Child fields
-};
+}* Child;
 
 // interfaces????
 struct interface_Child{
-	
+	struct type_info t_info;
+    struct function_references *functions;
 }
 

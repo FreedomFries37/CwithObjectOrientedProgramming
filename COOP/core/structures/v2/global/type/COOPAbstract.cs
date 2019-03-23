@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using COOP.core.structures.v2.functions;
 using COOP.core.structures.v2.global.modifiers;
 using COOP.core.structures.v2.global.type.included;
@@ -40,8 +41,21 @@ namespace COOP.core.structures.v2.global.type {
 			return availableFunctions;
 		}
 		
+		public Field[] getFields(AccessLevel accessLevel, AccessLevelRule rule) {
+			List<Field> output = new List<Field>();
+			if(parent != null) output.AddRange(parent.getFields(accessLevel, rule));
+			foreach (Field fieldsValue in fields.Values) {
+				if(AccessLevelMethods.canAccess(accessLevel, fieldsValue.modifiers.accessLevel))
+					output.Append(fieldsValue);
+			}
+
+			return output.ToArray();
+		}
+		
 		public override bool isStrictlyInterface() => false;
 
 		public override bool isStrictlyAbstract() => true;
 	}
+
+	
 }
