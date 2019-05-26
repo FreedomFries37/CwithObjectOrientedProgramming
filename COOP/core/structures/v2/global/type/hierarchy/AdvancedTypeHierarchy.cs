@@ -9,23 +9,27 @@ namespace COOP.core.structures.v2.global.type.hierarchy {
 		protected abstract class Node {
 			
 			public Node<COOPAbstract> parent { get; }
-			public List<Node<COOPInterface>> interfaces { get; }
+			//public List<Node<COOPInterface>> interfaces { get; }
 
-			public Node(Node<COOPAbstract> parent, List<Node<COOPInterface>> interfaces) {
+			/*public Node(Node<COOPAbstract> parent, List<Node<COOPInterface>> interfaces) {
 				this.parent = parent;
 				this.interfaces = interfaces;
+			}*/
+
+			protected Node(Node<COOPAbstract> parent) {
+				this.parent = parent;
 			}
 
 			public abstract bool isClass();
 			public abstract bool isAbstract();
 			public abstract bool isInterface();
 
-			public static Node<COOPInterface> createInterfaceNode(COOPInterface @interface) {
+			/*public static Node<COOPInterface> createInterfaceNode(COOPInterface @interface) {
 				return new Node<COOPInterface>(@interface, null, new List<Node<COOPInterface>>());
-			}
+			}*/
 
 			public static Node<COOPAbstract> createAbstractNode(COOPAbstract @abstract, Node<COOPAbstract> parent) {
-				return new Node<COOPAbstract>(@abstract, parent, new List<Node<COOPInterface>>());
+				return new Node<COOPAbstract>(@abstract, parent);
 			}
 		}
 		protected class Node<T> : Node where T : COOPType {
@@ -37,20 +41,24 @@ namespace COOP.core.structures.v2.global.type.hierarchy {
 
 			public override bool isInterface() => !isAbstract() && isClass();
 
-			public Node(T type, Node<COOPAbstract> parent, List<Node<COOPInterface>> interfaces) : base(parent, interfaces) {
+			public Node(T type, Node<COOPAbstract> parent) : base(parent) {
 				this.type = type;
+			}
+
+			public override string ToString() {
+				return $"{type}";
 			}
 		}
 
 
 
 
-		private Dictionary<COOPInterface, Node<COOPInterface>> interfaceNodes;
+//		private Dictionary<COOPInterface, Node<COOPInterface>> interfaceNodes;
 		private Dictionary<COOPAbstract, Node<COOPAbstract>> abstractNodes;
 		private Node<COOPAbstract> head;
 
 		public AdvancedTypeHierarchy() {
-			interfaceNodes = new Dictionary<COOPInterface, Node<COOPInterface>>();
+//			interfaceNodes = new Dictionary<COOPInterface, Node<COOPInterface>>();
 			abstractNodes = new Dictionary<COOPAbstract, Node<COOPAbstract>>();
 			head = Node.createAbstractNode(IncludedClasses.Object, null);
 		}
@@ -61,35 +69,35 @@ namespace COOP.core.structures.v2.global.type.hierarchy {
 				return add(type as COOPAbstract);
 			}
 
-			return add(type as COOPInterface);
+			return false;
 		}
 
-		public bool add(COOPInterface @interface) {
-			if (contains(@interface)) return false;
+		/*public bool add(COOPType type) {
+			if (contains(type)) return false;
 
-			Node<COOPInterface> interfaceNode = Node.createInterfaceNode(@interface);
-			foreach (COOPInterface parentInterface in @interface.parentInterfaces) {
+			Node<COOPInterface> interfaceNode = Node.createInterfaceNode(type);
+			foreach (COOPInterface parentInterface in type.parentInterfaces) {
 				if (!contains(parentInterface)) add(parentInterface);
 				interfaceNode.interfaces.Add(interfaceNodes[parentInterface]);
 			}
 
-			interfaceNodes.Add(@interface, interfaceNode);
+			interfaceNodes.Add(type, interfaceNode);
 			return true;
-		}
+		}*/
 
 		public bool add(COOPAbstract @abstract) {
 			if (@abstract == null) return false;
 			if (contains(@abstract)) return false;
-			if (!contains(@abstract.parent)) add(@abstract.parent);
+			if (@abstract.parent != null && !contains(@abstract.parent)) add(@abstract.parent);
 
 			Node<COOPAbstract> parent = @abstract.parent != null ? abstractNodes[@abstract.parent] : null;
 
 			Node<COOPAbstract> created = Node.createAbstractNode(@abstract, parent);
 			
-			foreach (COOPInterface parentInterface in @abstract.parentInterfaces) {
+			/*foreach (COOPInterface parentInterface in @abstract.parentInterfaces) {
 				if (!contains(parentInterface)) add(parentInterface);
 				created.interfaces.Add(interfaceNodes[parentInterface]);
-			}
+			}*/
 
 			abstractNodes.Add(@abstract, created);
 			return true;
@@ -101,13 +109,13 @@ namespace COOP.core.structures.v2.global.type.hierarchy {
 			return abstractNodes.ContainsKey(@abstract);
 		}
 
-		public bool contains(COOPInterface @interface) {
+		/*public bool contains(COOPInterface @interface) {
 			if (@interface == null) return false;
 			return interfaceNodes.ContainsKey(@interface);
-		}
+		}*/
 
 		public bool contains(COOPType type) {
-			return contains(type as COOPAbstract) || contains(type as COOPInterface);
+			return contains(type as COOPAbstract);
 		}
 		
 		

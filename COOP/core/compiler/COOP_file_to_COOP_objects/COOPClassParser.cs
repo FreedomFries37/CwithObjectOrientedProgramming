@@ -32,15 +32,15 @@ namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 		
 		
 		public COOPClassParser() {
-			startSymbol = new SyntacticCategories().start;
+			startSymbol = SyntacticCategories.start;
 		}
 
-		public ParseNode parse(string w) {
+		public ParseTree parse(string w) {
 			PushdownAutomata a = new PushdownAutomata(Deliminators, w, startSymbol);
 			return a.parse();
 		}
 		
-		public ParseNode parseFile(string path) {
+		public ParseTree parseFile(string path) {
 			string w = File.ReadAllText(path);
 			PushdownAutomata a = new PushdownAutomata(Deliminators, w, startSymbol);
 			return a.parse();

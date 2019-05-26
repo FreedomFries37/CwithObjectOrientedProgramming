@@ -6,10 +6,12 @@ using System.Dynamic;
 using System.Linq;
 
 namespace NondeterminateGrammarParser.parse.syntactic {
-	public class Category : SyntaticObject, IEnumerable<SyntaticObject[]> {
+	public class Category : SyntaticObject, IEnumerable<SyntaticObject[]>, IEquatable<Category> {
 
 		public string name { get; }
+		public bool StrictTokenUsage { get; set; } = false;
 		private SyntaticObject[][] rules;
+		
 
 		public Category(SyntaticObject[][] rules, string name) {
 			this.rules = rules;
@@ -71,6 +73,8 @@ namespace NondeterminateGrammarParser.parse.syntactic {
 			return "<" + name + ">";
 		}
 
+	
+
 		public override int minimumTerminals() {
 			
 			foreach (SyntaticObject[] syntaticObjects in rules) {
@@ -92,6 +96,76 @@ namespace NondeterminateGrammarParser.parse.syntactic {
 		public void addTerminalRulesForRange(char lower, char higher) {
 			for (char i = lower; i <= higher; i++) {
 				Add(new Terminal(i));
+			}
+		}
+
+		public override bool validate() {
+			return validate(new HashSet<SyntaticObject>());
+		}
+
+		private bool validate(HashSet<SyntaticObject> visited) {
+			visited.Add(this);
+
+			foreach (SyntaticObject[] syntaticObjects in rules) {
+				foreach (SyntaticObject syntaticObject in syntaticObjects) {
+					Category category = syntaticObject as Category;
+					if (category != null) {
+						if (!visited.Contains(syntaticObject)) {
+							if (!(syntaticObject as Category).validate(visited)) {
+								Console.WriteLine($"{this} invalid");
+								return false;
+							}
+						}
+					} else {
+						visited.Add(syntaticObject);
+					}
+				}
+			}
+
+			return true;
+		}
+
+		public bool Equals(Category other) {
+			if (ReferenceEquals(null, other)) return false;
+			if (ReferenceEquals(this, other)) return true;
+			return Equals(rules, other.rules) && string.Equals(name, other.name);
+		}
+
+		public override bool Equals(object obj) {
+			if (ReferenceEquals(null, obj)) return false;
+			if (ReferenceEquals(this, obj)) return true;
+			if (obj.GetType() != this.GetType()) return false;
+			return Equals((Category) obj);
+		}
+
+		public override int GetHashCode() {
+			unchecked {
+				return ((rules != null ? rules.GetHashCode() : 0) * 397) ^ (name != null ? name.GetHashCode() : 0);
+			}
+		}
+
+		public static bool operator ==(Category left, Category right) {
+			return Equals(left, right);
+		}
+
+		public static bool operator !=(Category left, Category right) {
+			return !Equals(left, right);
+		}
+
+		public override void print(int indent, HashSet<SyntaticObject> visited) {
+			Console.WriteLine(this.indent(indent) + this);
+			bool old = visited.Contains(this);
+			if (!old) {
+				visited.Add(this);
+				for (var i = 0; i < rules.Length; i++) {
+					Console.WriteLine(this.indent(indent + 1) + $"Rule {i}:");
+					
+					foreach (SyntaticObject syntaticObject in rules[i]) {
+						syntaticObject.print(indent + 1, visited);
+					}
+					
+					Console.WriteLine();
+				}
 			}
 		}
 	}

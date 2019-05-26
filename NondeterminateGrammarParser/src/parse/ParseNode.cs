@@ -8,7 +8,7 @@ using NondeterminateGrammarParser.parse.exceptions;
 using NondeterminateGrammarParser.parse.syntactic;
 
 namespace NondeterminateGrammarParser.parse {
-	public abstract class ParseNode {
+	 public abstract class ParseNode {
 
 		
 		public ParseNode parent { get; }
@@ -47,6 +47,10 @@ namespace NondeterminateGrammarParser.parse {
 
 		public int Add(ParseNode value) {
 			return ((System.Collections.IList) children).Add(value);
+		}
+		
+		public int Add(ParseTree value) {
+			return ((System.Collections.IList) children).Add(value.head);
 		}
 
 		public abstract ParseNode createCopy(ParseNode parent);

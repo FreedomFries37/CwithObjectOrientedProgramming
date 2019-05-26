@@ -18,18 +18,21 @@
 	  <Compile Remove="core\structures\v1\**" />
 	  <Compile Remove="core\inheritence\**" />
 	  <Compile Remove="core\compiler\COOPObjects_to_C\**" />
+	  <Compile Remove="core\compiler\parsing\**" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Remove="core\structures\v1\**" />
 	  <EmbeddedResource Remove="core\inheritence\**" />
 	  <EmbeddedResource Remove="core\compiler\COOPObjects_to_C\**" />
+	  <EmbeddedResource Remove="core\compiler\parsing\**" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="core\structures\v1\**" />
 	  <None Remove="core\inheritence\**" />
 	  <None Remove="core\compiler\COOPObjects_to_C\**" />
+	  <None Remove="core\compiler\parsing\**" />
 	</ItemGroup>
 
 </Project>

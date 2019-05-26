@@ -8,12 +8,19 @@ using COOP.core.structures;
 using COOP.core.structures.v2.global.modifiers;
 using COOP.core.structures.v2.global.type.included;
 using global::COOP.core.structures.v2.global;
+using NondeterminateGrammarParser.parse;
 
 namespace COOP.core {
 	class Program {
 		static void Main(string[] args) {
 			COOPProject project = new COOPProject("Test");
 			project.addClass(IncludedClasses.String);
+			
+			
+			COOPClassParser parser = new COOPClassParser();
+			var parseNode = parser.parseFile("rectangle.coop");
+			parseNode.print();
+			
 		}
 	
 

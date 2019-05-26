@@ -5,7 +5,7 @@ using COOP.core.structures.v2.global.modifiers;
 using COOP.core.structures.v2.global.type.included;
 
 namespace COOP.core.structures.v2.global.type {
-	public class COOPAbstract : COOPInterface{
+	public class COOPAbstract : COOPType{
 
 		public COOPAbstract parent { get; }
 
@@ -32,7 +32,7 @@ namespace COOP.core.structures.v2.global.type {
 		}
 
 		public override bool isParent(COOPType type) {
-			return isParent(type as COOPInterface) || isParent(type as COOPAbstract);
+			return isParent(type as COOPAbstract);
 		}
 
 		public override List<FunctionCall> getAvailableFunctions(AccessLevel accessLevel) {

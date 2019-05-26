@@ -114,19 +114,32 @@ namespace NondeterminateGrammarParser {
 				if (syntaticObject is Category) {
 					Category category = syntaticObject as Category;
 					List<State> output = new List<State>();
-					foreach (SyntaticObject[] syntaticObjects in category) {
-						
-						
-						
-						State nextState = new State(this);
-						Stack<SyntaticObject> s = nextState.stack;
-						for (var i = syntaticObjects.Length - 1; i >= 0; i--) {
-							s.Push(syntaticObjects[i]);
+					
+					if (!category.StrictTokenUsage) {
+						foreach (SyntaticObject[] syntaticObjects in category) {
+
+
+
+							State nextState = new State(this);
+							Stack<SyntaticObject> s = nextState.stack;
+							for (var i = syntaticObjects.Length - 1; i >= 0; i--) {
+								s.Push(syntaticObjects[i]);
+							}
+
+							new CategoryNode(nextState.findNextAvailableNode(), category, syntaticObjects.Length);
+							nextState.index = index;
+							output.Add(nextState);
 						}
+					} else {
+						State nextState = new State(this);
+						PushdownAutomata internalDriver = new PushdownAutomata(new string[0], nextState.currentToken, category);
+						ParseTree tokenParse = internalDriver.parse();
 						
-						new CategoryNode(nextState.findNextAvailableNode(), category, syntaticObjects.Length);
-						nextState.index = index;
-						output.Add(nextState);
+						if (tokenParse != null) {
+							nextState.findNextAvailableNode().Add(tokenParse);
+							nextState.advanceOneToken();
+							output.Add(nextState);
+						}
 					}
 
 					return output;
@@ -152,7 +165,7 @@ namespace NondeterminateGrammarParser {
 			this.start = start;
 		}
 
-		public ParseNode parse() {
+		public ParseTree parse() {
 			string[] tokens = split(originalString);
 			List<State> stateSet = new List<State>();
 			
@@ -176,7 +189,7 @@ namespace NondeterminateGrammarParser {
 					if (state.success) {
 						
 						state.head.clean();
-						return state.head;
+						return new ParseTree(state.head);
 					}
 				}
 			}
