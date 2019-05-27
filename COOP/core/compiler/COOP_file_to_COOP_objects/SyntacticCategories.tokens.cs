@@ -1,4 +1,4 @@
-using NondeterminateGrammarParser.parse.syntactic;
+using NondeterministicGrammarParser.parse.syntactic;
 
 namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 	public partial class SyntacticCategories {

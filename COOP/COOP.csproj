@@ -6,10 +6,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\NondeterminateGrammarParser\NondeterminateGrammarParser.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Folder Include="core\compiler\exceptions" />
 	  <Folder Include="core\structures\v2\functions\statements\control_flow" />
 	</ItemGroup>
@@ -33,6 +29,10 @@
 	  <None Remove="core\inheritence\**" />
 	  <None Remove="core\compiler\COOPObjects_to_C\**" />
 	  <None Remove="core\compiler\parsing\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NondeterministicGrammarParser\NondeterministicGrammarParser.csproj" />
 	</ItemGroup>
 
 </Project>

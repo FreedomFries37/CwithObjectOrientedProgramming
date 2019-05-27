@@ -1,15 +1,18 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.Design;
 using System.Linq;
+using NondeterministicGrammarParser.parse;
 
-namespace NondeterminateGrammarParser.parse {
+namespace NondeterministicGrammarParser.parse {
 	public class ParseTree {
 
 		internal ParseNode head;
+		public bool success { get; protected set; }
 
 
 		public ParseTree(ParseNode head) {
 			this.head = head;
+			success = true;
 		}
 
 		public string terminals => head.terminals;
@@ -38,7 +41,7 @@ namespace NondeterminateGrammarParser.parse {
 			return new ParseTree(head.createCopy(parent.head));
 		}
 
-		public void print() {
+		public virtual void print() {
 			head.print();
 		}
 
@@ -57,11 +60,31 @@ namespace NondeterminateGrammarParser.parse {
 			head.ConvertAll(reTooler);
 		}
 
-		public Collection<ParseTree> getAllChildrenOfCategory(string s) {
-			return new Collection<ParseTree>((from f in head.getAllChildrenOfCategory(s) select new ParseTree(f)).ToArray());
+		public Collection<ParseNode> getAllChildrenOfCategory(string s) {
+			return new Collection<ParseNode>(head.getAllChildrenOfCategory(s));
 		}
 
 		public ParseTree this[string s] => new ParseTree(head[s]);
-		
+
+		public Collection<ParseNode> GetAllLeafNodes() {
+			var stack = new Stack<ParseNode>();
+			stack.Push(head);
+			
+			var output = new Collection<ParseNode>();
+
+			while (stack.Count > 0) {
+				var n = stack.Pop();
+				var parseNodes = n.getChildren();
+				if (parseNodes.Length > 0) {
+					foreach (var parseNode in parseNodes) {
+						stack.Push(parseNode);
+					}
+				} else {
+					output.Add(n);
+				}
+			}
+
+			return output;
+		}
 	}
 }

@@ -1,4 +1,4 @@
-namespace COOP.core.coop_project {
+namespace COOP.core.coop_project.file_types {
 	public interface ICOOPProjectFile {
 		string getPath();
 

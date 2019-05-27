@@ -1,7 +1,7 @@
 using COOP.core.structures;
 using COOP.core.structures.v2.global.type;
 using global::COOP.core.structures.v2.global;
-using NondeterminateGrammarParser.parse;
+using NondeterministicGrammarParser.parse;
 
 namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 	public class COOPClassFileConverter : AbstractNodeConverter<COOPClass> {

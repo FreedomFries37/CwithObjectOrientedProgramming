@@ -1,6 +1,6 @@
-using System.Collections.Generic;
+using NondeterministicGrammarParser.parse;
 
-namespace NondeterminateGrammarParser.parse {
+namespace NondeterministicGrammarParser.parse {
 	public class StringNode : ParseNode{
 
 		public string value { get; }

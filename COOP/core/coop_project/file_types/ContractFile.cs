@@ -1,4 +1,4 @@
-namespace COOP.core.coop_project {
+namespace COOP.core.coop_project.file_types {
 	
 	/// <summary>
 	/// The contract file that must be paired with a c file. Converts to a .h file

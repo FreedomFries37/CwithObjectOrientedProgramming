@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.InteropServices;
-using NondeterminateGrammarParser.parse.exceptions;
-using NondeterminateGrammarParser.parse.syntactic;
+using NondeterministicGrammarParser.parse.exceptions;
 
-namespace NondeterminateGrammarParser.parse {
+namespace NondeterministicGrammarParser.parse {
 	 public abstract class ParseNode {
 
 		

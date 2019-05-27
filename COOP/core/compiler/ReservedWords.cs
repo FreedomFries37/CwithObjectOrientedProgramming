@@ -13,7 +13,10 @@ namespace COOP.core.compiler {
 				"while",
 				"for",
 				"do",
-				"class"
+				"class",
+				"public",
+				"protected",
+				"private"
 			};	
 		}
 

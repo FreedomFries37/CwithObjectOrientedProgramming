@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices.ComTypes;
 
-namespace NondeterminateGrammarParser.parse.syntactic {
+namespace NondeterministicGrammarParser.parse.syntactic {
 	public class Token : SyntaticObject, IEquatable<Token> {
 
 		public string token { get; }

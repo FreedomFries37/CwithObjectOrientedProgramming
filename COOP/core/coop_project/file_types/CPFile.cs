@@ -1,4 +1,4 @@
-namespace COOP.core.coop_project {
+namespace COOP.core.coop_project.file_types {
 	
 	/// <summary>
 	/// One step in between true C and COOP files

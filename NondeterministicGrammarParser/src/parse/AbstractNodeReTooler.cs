@@ -1,7 +1,6 @@
-using NondeterminateGrammarParser.parse.exceptions;
-using NondeterminateGrammarParser.parse.syntactic;
+using NondeterministicGrammarParser.parse.exceptions;
 
-namespace NondeterminateGrammarParser.parse {
+namespace NondeterministicGrammarParser.parse {
 	public abstract class AbstractNodeReTooler{
 
 		public string InputCategory { get; }

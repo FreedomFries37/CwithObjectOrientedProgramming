@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace COOP.core.coop_project {
+namespace COOP.core.coop_project.file_types {
 	public abstract class AbstractCOOPProjectFile : ICOOPProjectFile{
 
 		protected string intendedExtension { get; private set; }

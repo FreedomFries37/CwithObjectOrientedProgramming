@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
 using System.Text;
 
-namespace NondeterminateGrammarParser.parse.syntactic {
+namespace NondeterministicGrammarParser.parse.syntactic {
 	public abstract class SyntaticObject {
 
 	

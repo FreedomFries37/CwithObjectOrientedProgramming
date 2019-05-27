@@ -1,3 +1,5 @@
+using COOP.core.coop_project.file_types;
+
 namespace COOP.core.coop_project {
 	public class ContractAndCPair {
 

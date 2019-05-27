@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COOP", "COOP\COOP.csproj", "{F14AED2B-523E-46DD-A89D-885E9F62EC65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NondeterminateGrammarParser", "NondeterminateGrammarParser\NondeterminateGrammarParser.csproj", "{B63BD1FA-EEF3-4B46-A400-5762E790C4F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NondeterministicGrammarParser", "NondeterministicGrammarParser\NondeterministicGrammarParser.csproj", "{B63BD1FA-EEF3-4B46-A400-5762E790C4F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

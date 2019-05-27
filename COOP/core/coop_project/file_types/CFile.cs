@@ -1,4 +1,4 @@
-namespace COOP.core.coop_project {
+namespace COOP.core.coop_project.file_types {
 	
 	/// <summary>
 	/// a C file, where no translation is done.

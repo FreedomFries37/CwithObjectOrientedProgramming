@@ -1,11 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Dynamic;
 using System.Linq;
 
-namespace NondeterminateGrammarParser.parse.syntactic {
+namespace NondeterministicGrammarParser.parse.syntactic {
 	public class Category : SyntaticObject, IEnumerable<SyntaticObject[]>, IEquatable<Category> {
 
 		public string name { get; }

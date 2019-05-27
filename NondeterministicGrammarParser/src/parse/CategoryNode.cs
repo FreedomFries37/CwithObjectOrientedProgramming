@@ -1,15 +1,13 @@
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading;
-using NondeterminateGrammarParser.parse.exceptions;
-using NondeterminateGrammarParser.parse.syntactic;
+using NondeterministicGrammarParser.parse;
+using NondeterministicGrammarParser.parse.exceptions;
+using NondeterministicGrammarParser.parse.syntactic;
 
-namespace NondeterminateGrammarParser.parse {
+namespace NondeterministicGrammarParser.parse {
 	public class CategoryNode : ParseNode{
 
 		public Category category { get; }
-
-
+		
 		public CategoryNode(ParseNode parent, Category category, int intendedChildren) : base(parent) {
 			this.category = category;
 			this.intendedChildren = intendedChildren;
