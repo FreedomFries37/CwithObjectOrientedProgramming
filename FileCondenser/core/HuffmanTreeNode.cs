@@ -3,41 +3,47 @@ using System.Runtime.Serialization;
 
 namespace FileCondenser.core {
 	public class HuffmanTreeNode : IComparable<HuffmanTreeNode> {
-		private HuffmanTreeNode left { get; }
-		private HuffmanTreeNode right { get; }
-
-		private HuffmanTreeNode parent { get; set; }
-
 		public HuffmanTreeNode(HuffmanTreeNode left, HuffmanTreeNode right) {
 			this.left = left;
-			
-			if (this.left != null) {
-				this.left.parent = this;
-			}
-			
+
+			if (this.left != null) this.left.parent = this;
+
 			this.right = right;
 
-			if (this.right != null) {
-				this.right.parent = this;
-			}
+			if (this.right != null) this.right.parent = this;
 
 			parent = null;
 		}
 
+		internal HuffmanTreeNode left { get; }
+		internal HuffmanTreeNode right { get; }
+
+		private HuffmanTreeNode parent { get; set; }
+
+		public long Quantity => GetQuantity();
+
+		public int CompareTo(HuffmanTreeNode other) {
+			if (other == null) return 1;
+			if (other.GetQuantity() == GetQuantity()) return 0;
+			return GetQuantity() > other.GetQuantity() ? 1 : -1;
+		}
+
 
 		public virtual long GetQuantity() {
-			return left?.GetQuantity() ?? 0 + right?.GetQuantity() ?? 0;
+			var leftSum = left?.GetQuantity() ?? 0;
+			var rightSum = right?.GetQuantity() ?? 0;
+			return leftSum + rightSum;
 		}
 
 		public string GetPath() {
 			if (parent == null) return "";
-			
+
 			// this is left
 			if (parent.left == this) return parent.GetPath() + '0';
 			if (parent.right == this) return parent.GetPath() + '1';
 			throw new HuffmanNodePathException();
 		}
-		
+
 		internal HuffmanTreeNode GetHead() {
 			if (parent == null) return this;
 			return parent.GetHead();
@@ -60,13 +66,5 @@ namespace FileCondenser.core {
 				SerializationInfo info,
 				StreamingContext context) : base(info, context) { }
 		}
-
-		public int CompareTo(HuffmanTreeNode other) {
-			if (other == null) return 1;
-			if (other.GetQuantity() == GetQuantity()) return 0;
-			return GetQuantity() > other.GetQuantity() ? 1 : -1;
-		}
-
-		
 	}
 }

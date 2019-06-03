@@ -1,0 +1,908 @@
+Joshua Radin 
+History of Technology Paper Four 
+The ability to transport ourselves better has been a focus of human technological progress 
+for as long as humans could use tools. The ability to get from place to place with ease is a 
+problem that always has a better solution. For years, humans had to rely on horses as the main 
+form of transportation. However, the trouble with animals is that they are expensive, have to be 
+fed, and require training. Eventually, during the industrial revolution, mechanical solutions were 
+eventually invented. The train was the first instance of an entirely mechanical solution to large 
+distance ground travel. However, trains weren’t personal, had to adhere to a strict schedule, and 
+could only go where ever track was laid. It wasn’t until the invention of the affordable car that 
+transportation was truly revolutionized. For the first time, humans could travel anywhere in vast 
+distances in a relatively short amount of time for cheap. Society began to adapt around the 
+invention of the car. Suburbanization began to skyrocket as it became easier to live outside of 
+cities. Towns were being built with the idea of driving in mind, with large parking lots becoming 
+iconic features of the long main streets being built all over America. Surely, the invention of the 
+car rocked society in a large way. Now, one hundred years after the introduction of Ford’s Model 
+T, a new technology involving the way in which we transport ourselves has the potential to 
+change everything, again. As computational power increased, and more advanced sensors have 
+been invented, it has become apparent that the possibility of the large-scale implementation of 
+self-driving vehicles is upon us. The technology has the potential to change society similar to 
+how the original car. Although development has been very gradual in the last few years, 
+autonomous vehicle technology has the potential to change the way we live by dramatically 
+altering the way infrastructure is built, how cities are planned, and the fundamental ways in 
+which we view transportation. 
+The development of self-driving cars has been a very long process, although recent 
+technological advancements and superior processing power has rapidly increased the rate of 
+development. Much of the technology and concepts that are fueling modern testing of 
+autonomous cars were actually theorized and created by the Eureka PROMETHEUS Projects 
+(Daily) from 1987 to 1995. Eureka is an international, European based, government research 
+organization, which was funded with 749,000,000€ for research and development into 
+autonomous vehicles (Eureka). The work that the organization did resulted in the development of 
+the standard set of systems used for automated driving is still used today. These systems included 
+the 4D approach of mapping, recursive estimation, and Clothoid modeling of road curvature 
+(Daily). All of these technologies were significant in the advancement of self-driving capabilities 
+and are in use today for the limited amount of automation that cars are already employing. 
+However, these are not the only things that would enable a self-driving car. For an automated 
+vehicle to function, it’s most basic necessity would be its perception. The ability for a robot to 
+“see” is called machine vision and is a rapidly advancing technology. For a car to be trusted to 
+drive itself, it must be able to recognize everything that’s going on around it. This is done 
+through a multitude of sensors, ranging from infrared cameras, laser scanners, LiDAR, short- and 
+long-range radar, ultrasonic sonar, and video cameras (Access Science). All of these combined 
+are what makes up the “vision” of the robotic car. From the data it gathers from these sensors, 
+the car has to then attempt to construct a model of the world. The reason why the car has so 
+many sensors is the complexity of constructing such a model. The model of the world has to be 
+constructed at a rapid pace, due to both the speed the vehicle is traveling at and the rapidly ever- 
+changing state of the world. An improper representation of the world could lead to disaster, as 
+the car could collide into something it wasn’t aware existed. However, self-driving cars aren’t 
+the only type of cars that are taking advantage of this technology. 
+Today, cars are already being built and sold for common consumer with semi- 
+autonomous functions built in. Many cars are now being built with detectors on the side to warn 
+drivers about cars in their blind spot. Although the car itself doesn’t react to this information, this 
+type of development is a showcase of how car developers are trying to push their products to 
+operate more safely. As an increase in safety is a large part of the push for automated driving, 
+any step is a significant one. However, mere blind spot detectors are not the only part of the 
+automated vehicle suite that has appeared in consumer cars. Many cars today are starting to 
+include systems that make the car semi-autonomous. Many cars, such as the more expensive 
+Cadillac CT6 and even the Honda Civic, are including lane following with adaptive cruise 
+control (Daily). These cars, when above a certain speed limit while on a highway are able to 
+automatically adjust the speed they are going at based on the speed of the vehicle in front of 
+them and will warn the driver of any sudden changes in condition requiring the driver’s attention. 
+This level of automation is referred automation to as Level 2 by the US Department of 
+Transportation’s National Highway Traffic Safety Administration, whose scale goes from level 0 
+to level 4 (Guerra). Tesla’s autopilot system is much more advanced than this, and actually has 
+the ability to turn by itself, and suggest when to change lanes. These systems differ from the idea 
+of fully autonomous driving cars because of their lack of ability to make decisions. When a car is 
+using the speed adjusting cruise control, although it is reacting to the world around it, it is not 
+doing to intelligently. It’s not deciding that it should reduce its speed because the car in front of 
+it is but is slowing down just because it’s hard wired to do so. The ability to make decisions is 
+the defining factor of a truly autonomous car, and what is required for a self-driving car to make 
+it on the streets. 
+Decision making is one of the most difficult problems facing the development of 
+autonomous cars. An ability that humans take for granted is our intuition. Humans are able to 
+reason and come to conclusions based on the state of the world around them and are able to fill 
+in the holes in the information available to them. Furthermore, humans are able to learn at a rapid 
+rate. Modeling this with computers is incredibly difficult and requires lots of computational 
+power. Although recently computers having become significantly stronger computationally, they 
+are nowhere near the power that the human brain has. Additionally, a self-driving car couldn’t 
+only react to the world around it. It would also have to be able to predict and reason how it’s 
+actions could affect the world. A driver can’t stay in one lane on one road forever, they need to 
+turn at some point. A self-driving car would have to be able to reason that a decision it makes 
+wouldn’t endanger any other car as a result of its decision. Moreover, a self-driving car needs a 
+certain amount of insurance that the people would act predictably and cleanly. However, in real 
+life this isn’t often the case. In environments with less strict driving regulations, traffic is 
+significantly more unpredictable, filled with unexpected traversal patterns, unexpected scenarios, 
+and drivers with unpredictable driving habits (Daily). Training an artificial intelligence to predict 
+every possible scenario is impossible, and therefore would require an agent with incredibly high 
+generalization. The best way for these agents to learn is through training, unfortunately training 
+is slowed down by many factors. Notably, the cars are often locked to a small geographic area, 
+are required to much training in real-time instead of simulated, and the cars themselves are 
+expensive to build. Overall, as it currently stands fully automated driving is a fantasy, but 
+definitely a promising one. Eventually, when fully automated driving cars become the norm, it 
+will be expected that the world will change drastically around it. 
+A significant change that would be experienced as the result of the use of self-driving 
+cars would be the ways in which cities are designed. Cities will probably be the first place where 
+the introduction of self-driving cars will see changes in infrastructure. The high population living 
+there and commuting in and out of the city will require that cities be well adapted for the mass 
+changes. As the result of the introduction of automated vehicles, the demand for parking will be 
+shifted, as it becomes feasible for cars to transport themselves, so parking becomes less 
+necessary. Cities will begin to develop “parking belts” where cars will be parked in the day 
+(Zakharenko). An interesting side effect of the change to self-driving cars is that it’s predicted 
+that traffic will actually increase, but this doesn’t mean that there will be an increase in 
+congestion (Zakharenko). This means that although there will be more cars on the road, the car 
+won’t be slowed down as heavily due to interactions with other cars. Robotic cars would be 
+much more efficient with their actions, and less-likely to make unexpected moves in the fast- 
+pace of city driving. The convenience of having self-driving cars would change where both 
+people and companies choose to locate themselves, as living in a city would become even easier, 
+as self-driving cars would effectively remove many of the downsides of having a car in a city, 
+namely finding a location to park the car. However, due to the complexity of driving in a city, 
+cities would probably be the last place where cars would be fully automated. Besides the large 
+number of other cars, there would also be high levels of pedestrians, significantly greater than 
+the near zero pedestrians seen on highways. Pedestrians are even more unpredictable than cars, 
+and even more dangerous for the car. People move much more unexpectedly when not in cars, 
+because they don’t have to move several thousand pounds of metal to turn. Furthermore, there’s 
+no room for error when hitting a pedestrian. Although hitting anything would definitely be bad, 
+hitting an essentially defenseless pedestrian is even worse. Despite all of this, companies and 
+countries have begun to work on creating and testing their own self-driving vehicles. 
+Some of the largest innovators and testers in the self-driving cars industry are companies 
+trying to use the technology for profit. They are attempting to use the technology as a part of a 
+service, instead of just the car itself. Waymo, formerly the Google self-driving car project, is a 
+subsidiary of Alphabet Inc. which is attempting to bring self-driving car technology to the people 
+by the means of a taxi service. Similar to the services that are provide by Lyft and Uber, a person 
+could request a Waymo car to pick them up at a location and bring them to a specified 
+destination. Although somewhat limited in scope, the idea behind this part of the project is to 
+show the potential of self-driving cars to the public. However, Waymo’s mission does end with 
+its taxi service. The next step for Waymo will be the automation of the trucking industry 
+(Waymo). The advancement into the trucking industry could have a much more profound and 
+world-changing effect then just as a taxi service. Trucking is a critical component of the 
+American economy, and how many goods are transported around the country. However, there’s a 
+limiting factor to how much can be transported: the humans driving the trucks. Truckers have 
+required number of hours they’re allowed to sleep, and a maximum number of hours they’re 
+actually allowed to drive per day. However, if these requirements were removed by getting rid of 
+the human element, the new economic activity generated by the automated trucks would be 
+massive. These types of improvements would be the first changes that would be seen as self- 
+driving technology becomes accepted by larger portions of the industry, and as more uses are 
+found for them. 
+Trucking isn’t the only use for self-driving vehicles, and many other industries are 
+finding ways to utilize them. For example, in India companies are attempting to use self-driving 
+cars for uses in agriculture and mining (Daily). Other companies are also coming up with even 
+more creative services using automated cars. Kroger is utilizing self-driving cars for delivering 
+grocery items directly to customers. The vehicles being used for this have no steering wheel and 
+no room for a driver, a deviation from previous self-driving cars in use (Busewitz). However, 
+these delivery cars are monitored by a “shadow car”, with a driver in it who is able to stop or 
+control the self-driving car. This type of solution shows one of the main problems facing self- 
+driving cars. Although technically the car is self-driving, it still requires a person to monitor the 
+activity and actions of the car. Getting self-driving cars to be able to navigate roads without 
+being a danger is truly the hardest problem currently facing these services as well, and a large 
+part of the reason why these services have such slow rollout. People don’t want to feel even more 
+unsafe on the streets, and investors don’t want to invest in technology that could be potentially 
+harmful. Thus, as of now self-driving cars for the average consumer are a long time away from 
+hitting the market. 
+However, the slow progress does not mean that self-driving cars are not in our future. On 
+the contrary, all of this progress points to these self-driving cars eventually hitting the market. 
+Self-driving cars have the potential to change everyone’s personal lives. Self-driving cars will 
+change how people view commuting and traveling long distance. Instead of having to actually 
+drive everywhere, and therefore be incredibly mentally focused for long periods of time, self- 
+driving cars would enable people to act many of same ways they could on current public 
+transportation. People could watch television shows, watch movies, read a book, sleep, or 
+anything else that they couldn’t with their hands attached to the wheel and eyes on the road at all 
+times. As a result, people would probably be more willing to travel longer distances for their 
+work and people will move even farther away from cities. Self-driving cars will also probably 
+change how public transportation will work as well. Buses will become automated, which will 
+allow for more public transportation that can run at all times of the day. Any industry that 
+requires having a large number of drivers and cars will be able to change the ways in which their 
+company operates. Companies like Uber and Lyft, who already have been experimenting with 
+self-driving cars, would most likely move to providing the self-driving cars instead of hiring 
+drivers. Mail delivery would probably be done by automated vans, maybe utilizing drones to 
+physically deliver the letters and packages to their intended destination. Overall, the introduction 
+of autonomous vehicles will allow for the continued rise of the culture of convenience that has 
+emerged in the past few years by extending on the idea of services such as Amazon Prime: to 
+deliver products to customers as fast as possible. 
+A fascinating aspect of the rise of self-driving cars will be how it changes the workforce. 
+As a result of self-driving cars, many people will find themselves without jobs. Almost any job 
+that previously required having a driver will no longer exist, as it will be replaced by a robot. 
+However, in its wake hopefully even better jobs will emerge, as people are needed to maintain 
+the cars, both the code behind it and the physical car itself. Services that utilize these self-driving 
+cars will need people to do lots work behind the scenes in order to make sure operations go 
+smoothly. However, this does not mean there won’t be massive push back against these self- 
+driving cars. Already, taxi companies are pushing hard against companies like Waymo because it 
+threatens their status quo. It’s easier for people to continue to do what they already do versus 
+learning a new skill. So although the new jobs that could be created by the self-driving cars 
+would most likely be more lucrative than previous jobs, the uptake by the public would slowed 
+down dramatically. Slow down by popular opposition will most likely be a constant during the 
+beginning years of implementation. As of right now, there is a lot of mistrust towards self- 
+driving cars, for a multitude of reasons. For one, it’s incredibly hard to prove that the technology 
+is actually safe. Last year, a woman was killed in an accident with one of Uber’s test self-driving 
+cars, and development into the cars had to be stopped for several months as a result. Not only 
+does this hurt public perception of autonomous vehicles, but it dramatically slows down the rate 
+of growth for the intelligence of these cars. The cars require being on the road to learn, so any 
+downtime is a massive loss for the future of the technology. Furthermore, there will certainly be 
+pushback by people who don’t like the idea of giving up their ability to drive a car. There’s a 
+certain sense of freedom associated with the ability to drive a car, and people will be afraid to 
+give up that right. Mostly likely initial automated cars will still have a steering wheel and pedals 
+in them, not only to deal with possible errors that car could make, but also as a compromise with 
+those who want to still be able to control the car. Most likely, the steering wheel will never 
+actually go away. 
+Ultimately, self-driving vehicles is a technology that has a potential to cause a massive 
+change within our society. Development of automated vehicles has seen a dramatic increase in 
+interest in the last few years, and autonomous vehicle technology has the potential to change the 
+way we live by dramatically altering the way infrastructure is built, how cities are planned, and 
+the fundamental ways in which we view transportation. Many countries and companies have 
+spending large amounts of money on the research and development of these technologies 
+because of the possibilities they could provide. There’s no knowing what exactly will come out 
+of having these cars will give us, besides more convenient ways of traveling, but there’s already 
+promising signs for the future by way of the new services that are already using the technology. 
+Furthermore, another effect of developing self-driving cars will be the massive leaps in artificial 
+intelligence technology that will be created as a result. For self-driving cars to exist, we will need 
+artificial intelligence significantly stronger than what we have now, which will not only be able 
+to see the world, but also understand the semantics behind what it’s seeing. This technology 
+would have many other uses besides just autonomous cars and would further revolutionize the 
+world. Overall, the large-scale implementation of self-driving cars will most likely be a 
+technology that is seen in the near future that has the potential to alter the way we view and use 
+transportation. 
+Bibliography 
+Daily, Mike, et al. "Self-Driving Cars." Vol. 50. 12. IEEE Computer Society, December 2017. 
+18-23. Article. 
+“PROMETHESUS.” EUREKA, 1 Jan. 1987, www.eurekanetwork.org/project/id/45. 
+Editors, AccessScience. Self-Driving Car. McGraw-Hill Education, 2018, doi:10.1036/1097 
+8542.613920. 
+Guerra, Erick. "Planning for Cars that Drive Themselves: Metropolitan Planning Organizations, 
+Regional Transportation Plans, and Autonomous Vehicles." Journal of Planning 
+Education and Research. Vol. 36. 2. 2016. 210-224. 
+Zakharenko, Roman. "Self-driving cars will change cities." Regional Science and Urban 
+Economics. Vol. 61. November 2016. 26-37. Website. 
+“What's Next – Waymo.” Waymo, waymo.com/whats-next/. 
+Busewitz, Cathy. “Kroger Has Launched Self-Driving Grocery Deliveries in Arizona.” Business 
+Insider, Business Insider, 20 Dec. 2018, www.businessinsider.com/kroger-has-launched- 
+self-driving-grocery-deliveries-in-arizona-2018-12. 
+Joshua Radin 
+History of Technology Paper Four 
+The ability to transport ourselves better has been a focus of human technological progress 
+for as long as humans could use tools. The ability to get from place to place with ease is a 
+problem that always has a better solution. For years, humans had to rely on horses as the main 
+form of transportation. However, the trouble with animals is that they are expensive, have to be 
+fed, and require training. Eventually, during the industrial revolution, mechanical solutions were 
+eventually invented. The train was the first instance of an entirely mechanical solution to large 
+distance ground travel. However, trains weren’t personal, had to adhere to a strict schedule, and 
+could only go where ever track was laid. It wasn’t until the invention of the affordable car that 
+transportation was truly revolutionized. For the first time, humans could travel anywhere in vast 
+distances in a relatively short amount of time for cheap. Society began to adapt around the 
+invention of the car. Suburbanization began to skyrocket as it became easier to live outside of 
+cities. Towns were being built with the idea of driving in mind, with large parking lots becoming 
+iconic features of the long main streets being built all over America. Surely, the invention of the 
+car rocked society in a large way. Now, one hundred years after the introduction of Ford’s Model 
+T, a new technology involving the way in which we transport ourselves has the potential to 
+change everything, again. As computational power increased, and more advanced sensors have 
+been invented, it has become apparent that the possibility of the large-scale implementation of 
+self-driving vehicles is upon us. The technology has the potential to change society similar to 
+how the original car. Although development has been very gradual in the last few years, 
+autonomous vehicle technology has the potential to change the way we live by dramatically 
+altering the way infrastructure is built, how cities are planned, and the fundamental ways in 
+which we view transportation. 
+The development of self-driving cars has been a very long process, although recent 
+technological advancements and superior processing power has rapidly increased the rate of 
+development. Much of the technology and concepts that are fueling modern testing of 
+autonomous cars were actually theorized and created by the Eureka PROMETHEUS Projects 
+(Daily) from 1987 to 1995. Eureka is an international, European based, government research 
+organization, which was funded with 749,000,000€ for research and development into 
+autonomous vehicles (Eureka). The work that the organization did resulted in the development of 
+the standard set of systems used for automated driving is still used today. These systems included 
+the 4D approach of mapping, recursive estimation, and Clothoid modeling of road curvature 
+(Daily). All of these technologies were significant in the advancement of self-driving capabilities 
+and are in use today for the limited amount of automation that cars are already employing. 
+However, these are not the only things that would enable a self-driving car. For an automated 
+vehicle to function, it’s most basic necessity would be its perception. The ability for a robot to 
+“see” is called machine vision and is a rapidly advancing technology. For a car to be trusted to 
+drive itself, it must be able to recognize everything that’s going on around it. This is done 
+through a multitude of sensors, ranging from infrared cameras, laser scanners, LiDAR, short- and 
+long-range radar, ultrasonic sonar, and video cameras (Access Science). All of these combined 
+are what makes up the “vision” of the robotic car. From the data it gathers from these sensors, 
+the car has to then attempt to construct a model of the world. The reason why the car has so 
+many sensors is the complexity of constructing such a model. The model of the world has to be 
+constructed at a rapid pace, due to both the speed the vehicle is traveling at and the rapidly ever- 
+changing state of the world. An improper representation of the world could lead to disaster, as 
+the car could collide into something it wasn’t aware existed. However, self-driving cars aren’t 
+the only type of cars that are taking advantage of this technology. 
+Today, cars are already being built and sold for common consumer with semi- 
+autonomous functions built in. Many cars are now being built with detectors on the side to warn 
+drivers about cars in their blind spot. Although the car itself doesn’t react to this information, this 
+type of development is a showcase of how car developers are trying to push their products to 
+operate more safely. As an increase in safety is a large part of the push for automated driving, 
+any step is a significant one. However, mere blind spot detectors are not the only part of the 
+automated vehicle suite that has appeared in consumer cars. Many cars today are starting to 
+include systems that make the car semi-autonomous. Many cars, such as the more expensive 
+Cadillac CT6 and even the Honda Civic, are including lane following with adaptive cruise 
+control (Daily). These cars, when above a certain speed limit while on a highway are able to 
+automatically adjust the speed they are going at based on the speed of the vehicle in front of 
+them and will warn the driver of any sudden changes in condition requiring the driver’s attention. 
+This level of automation is referred automation to as Level 2 by the US Department of 
+Transportation’s National Highway Traffic Safety Administration, whose scale goes from level 0 
+to level 4 (Guerra). Tesla’s autopilot system is much more advanced than this, and actually has 
+the ability to turn by itself, and suggest when to change lanes. These systems differ from the idea 
+of fully autonomous driving cars because of their lack of ability to make decisions. When a car is 
+using the speed adjusting cruise control, although it is reacting to the world around it, it is not 
+doing to intelligently. It’s not deciding that it should reduce its speed because the car in front of 
+it is but is slowing down just because it’s hard wired to do so. The ability to make decisions is 
+the defining factor of a truly autonomous car, and what is required for a self-driving car to make 
+it on the streets. 
+Decision making is one of the most difficult problems facing the development of 
+autonomous cars. An ability that humans take for granted is our intuition. Humans are able to 
+reason and come to conclusions based on the state of the world around them and are able to fill 
+in the holes in the information available to them. Furthermore, humans are able to learn at a rapid 
+rate. Modeling this with computers is incredibly difficult and requires lots of computational 
+power. Although recently computers having become significantly stronger computationally, they 
+are nowhere near the power that the human brain has. Additionally, a self-driving car couldn’t 
+only react to the world around it. It would also have to be able to predict and reason how it’s 
+actions could affect the world. A driver can’t stay in one lane on one road forever, they need to 
+turn at some point. A self-driving car would have to be able to reason that a decision it makes 
+wouldn’t endanger any other car as a result of its decision. Moreover, a self-driving car needs a 
+certain amount of insurance that the people would act predictably and cleanly. However, in real 
+life this isn’t often the case. In environments with less strict driving regulations, traffic is 
+significantly more unpredictable, filled with unexpected traversal patterns, unexpected scenarios, 
+and drivers with unpredictable driving habits (Daily). Training an artificial intelligence to predict 
+every possible scenario is impossible, and therefore would require an agent with incredibly high 
+generalization. The best way for these agents to learn is through training, unfortunately training 
+is slowed down by many factors. Notably, the cars are often locked to a small geographic area, 
+are required to much training in real-time instead of simulated, and the cars themselves are 
+expensive to build. Overall, as it currently stands fully automated driving is a fantasy, but 
+definitely a promising one. Eventually, when fully automated driving cars become the norm, it 
+will be expected that the world will change drastically around it. 
+A significant change that would be experienced as the result of the use of self-driving 
+cars would be the ways in which cities are designed. Cities will probably be the first place where 
+the introduction of self-driving cars will see changes in infrastructure. The high population living 
+there and commuting in and out of the city will require that cities be well adapted for the mass 
+changes. As the result of the introduction of automated vehicles, the demand for parking will be 
+shifted, as it becomes feasible for cars to transport themselves, so parking becomes less 
+necessary. Cities will begin to develop “parking belts” where cars will be parked in the day 
+(Zakharenko). An interesting side effect of the change to self-driving cars is that it’s predicted 
+that traffic will actually increase, but this doesn’t mean that there will be an increase in 
+congestion (Zakharenko). This means that although there will be more cars on the road, the car 
+won’t be slowed down as heavily due to interactions with other cars. Robotic cars would be 
+much more efficient with their actions, and less-likely to make unexpected moves in the fast- 
+pace of city driving. The convenience of having self-driving cars would change where both 
+people and companies choose to locate themselves, as living in a city would become even easier, 
+as self-driving cars would effectively remove many of the downsides of having a car in a city, 
+namely finding a location to park the car. However, due to the complexity of driving in a city, 
+cities would probably be the last place where cars would be fully automated. Besides the large 
+number of other cars, there would also be high levels of pedestrians, significantly greater than 
+the near zero pedestrians seen on highways. Pedestrians are even more unpredictable than cars, 
+and even more dangerous for the car. People move much more unexpectedly when not in cars, 
+because they don’t have to move several thousand pounds of metal to turn. Furthermore, there’s 
+no room for error when hitting a pedestrian. Although hitting anything would definitely be bad, 
+hitting an essentially defenseless pedestrian is even worse. Despite all of this, companies and 
+countries have begun to work on creating and testing their own self-driving vehicles. 
+Some of the largest innovators and testers in the self-driving cars industry are companies 
+trying to use the technology for profit. They are attempting to use the technology as a part of a 
+service, instead of just the car itself. Waymo, formerly the Google self-driving car project, is a 
+subsidiary of Alphabet Inc. which is attempting to bring self-driving car technology to the people 
+by the means of a taxi service. Similar to the services that are provide by Lyft and Uber, a person 
+could request a Waymo car to pick them up at a location and bring them to a specified 
+destination. Although somewhat limited in scope, the idea behind this part of the project is to 
+show the potential of self-driving cars to the public. However, Waymo’s mission does end with 
+its taxi service. The next step for Waymo will be the automation of the trucking industry 
+(Waymo). The advancement into the trucking industry could have a much more profound and 
+world-changing effect then just as a taxi service. Trucking is a critical component of the 
+American economy, and how many goods are transported around the country. However, there’s a 
+limiting factor to how much can be transported: the humans driving the trucks. Truckers have 
+required number of hours they’re allowed to sleep, and a maximum number of hours they’re 
+actually allowed to drive per day. However, if these requirements were removed by getting rid of 
+the human element, the new economic activity generated by the automated trucks would be 
+massive. These types of improvements would be the first changes that would be seen as self- 
+driving technology becomes accepted by larger portions of the industry, and as more uses are 
+found for them. 
+Trucking isn’t the only use for self-driving vehicles, and many other industries are 
+finding ways to utilize them. For example, in India companies are attempting to use self-driving 
+cars for uses in agriculture and mining (Daily). Other companies are also coming up with even 
+more creative services using automated cars. Kroger is utilizing self-driving cars for delivering 
+grocery items directly to customers. The vehicles being used for this have no steering wheel and 
+no room for a driver, a deviation from previous self-driving cars in use (Busewitz). However, 
+these delivery cars are monitored by a “shadow car”, with a driver in it who is able to stop or 
+control the self-driving car. This type of solution shows one of the main problems facing self- 
+driving cars. Although technically the car is self-driving, it still requires a person to monitor the 
+activity and actions of the car. Getting self-driving cars to be able to navigate roads without 
+being a danger is truly the hardest problem currently facing these services as well, and a large 
+part of the reason why these services have such slow rollout. People don’t want to feel even more 
+unsafe on the streets, and investors don’t want to invest in technology that could be potentially 
+harmful. Thus, as of now self-driving cars for the average consumer are a long time away from 
+hitting the market. 
+However, the slow progress does not mean that self-driving cars are not in our future. On 
+the contrary, all of this progress points to these self-driving cars eventually hitting the market. 
+Self-driving cars have the potential to change everyone’s personal lives. Self-driving cars will 
+change how people view commuting and traveling long distance. Instead of having to actually 
+drive everywhere, and therefore be incredibly mentally focused for long periods of time, self- 
+driving cars would enable people to act many of same ways they could on current public 
+transportation. People could watch television shows, watch movies, read a book, sleep, or 
+anything else that they couldn’t with their hands attached to the wheel and eyes on the road at all 
+times. As a result, people would probably be more willing to travel longer distances for their 
+work and people will move even farther away from cities. Self-driving cars will also probably 
+change how public transportation will work as well. Buses will become automated, which will 
+allow for more public transportation that can run at all times of the day. Any industry that 
+requires having a large number of drivers and cars will be able to change the ways in which their 
+company operates. Companies like Uber and Lyft, who already have been experimenting with 
+self-driving cars, would most likely move to providing the self-driving cars instead of hiring 
+drivers. Mail delivery would probably be done by automated vans, maybe utilizing drones to 
+physically deliver the letters and packages to their intended destination. Overall, the introduction 
+of autonomous vehicles will allow for the continued rise of the culture of convenience that has 
+emerged in the past few years by extending on the idea of services such as Amazon Prime: to 
+deliver products to customers as fast as possible. 
+A fascinating aspect of the rise of self-driving cars will be how it changes the workforce. 
+As a result of self-driving cars, many people will find themselves without jobs. Almost any job 
+that previously required having a driver will no longer exist, as it will be replaced by a robot. 
+However, in its wake hopefully even better jobs will emerge, as people are needed to maintain 
+the cars, both the code behind it and the physical car itself. Services that utilize these self-driving 
+cars will need people to do lots work behind the scenes in order to make sure operations go 
+smoothly. However, this does not mean there won’t be massive push back against these self- 
+driving cars. Already, taxi companies are pushing hard against companies like Waymo because it 
+threatens their status quo. It’s easier for people to continue to do what they already do versus 
+learning a new skill. So although the new jobs that could be created by the self-driving cars 
+would most likely be more lucrative than previous jobs, the uptake by the public would slowed 
+down dramatically. Slow down by popular opposition will most likely be a constant during the 
+beginning years of implementation. As of right now, there is a lot of mistrust towards self- 
+driving cars, for a multitude of reasons. For one, it’s incredibly hard to prove that the technology 
+is actually safe. Last year, a woman was killed in an accident with one of Uber’s test self-driving 
+cars, and development into the cars had to be stopped for several months as a result. Not only 
+does this hurt public perception of autonomous vehicles, but it dramatically slows down the rate 
+of growth for the intelligence of these cars. The cars require being on the road to learn, so any 
+downtime is a massive loss for the future of the technology. Furthermore, there will certainly be 
+pushback by people who don’t like the idea of giving up their ability to drive a car. There’s a 
+certain sense of freedom associated with the ability to drive a car, and people will be afraid to 
+give up that right. Mostly likely initial automated cars will still have a steering wheel and pedals 
+in them, not only to deal with possible errors that car could make, but also as a compromise with 
+those who want to still be able to control the car. Most likely, the steering wheel will never 
+actually go away. 
+Ultimately, self-driving vehicles is a technology that has a potential to cause a massive 
+change within our society. Development of automated vehicles has seen a dramatic increase in 
+interest in the last few years, and autonomous vehicle technology has the potential to change the 
+way we live by dramatically altering the way infrastructure is built, how cities are planned, and 
+the fundamental ways in which we view transportation. Many countries and companies have 
+spending large amounts of money on the research and development of these technologies 
+because of the possibilities they could provide. There’s no knowing what exactly will come out 
+of having these cars will give us, besides more convenient ways of traveling, but there’s already 
+promising signs for the future by way of the new services that are already using the technology. 
+Furthermore, another effect of developing self-driving cars will be the massive leaps in artificial 
+intelligence technology that will be created as a result. For self-driving cars to exist, we will need 
+artificial intelligence significantly stronger than what we have now, which will not only be able 
+to see the world, but also understand the semantics behind what it’s seeing. This technology 
+would have many other uses besides just autonomous cars and would further revolutionize the 
+world. Overall, the large-scale implementation of self-driving cars will most likely be a 
+technology that is seen in the near future that has the potential to alter the way we view and use 
+transportation. 
+Bibliography 
+Daily, Mike, et al. "Self-Driving Cars." Vol. 50. 12. IEEE Computer Society, December 2017. 
+18-23. Article. 
+“PROMETHESUS.” EUREKA, 1 Jan. 1987, www.eurekanetwork.org/project/id/45. 
+Editors, AccessScience. Self-Driving Car. McGraw-Hill Education, 2018, doi:10.1036/1097 
+8542.613920. 
+Guerra, Erick. "Planning for Cars that Drive Themselves: Metropolitan Planning Organizations, 
+Regional Transportation Plans, and Autonomous Vehicles." Journal of Planning 
+Education and Research. Vol. 36. 2. 2016. 210-224. 
+Zakharenko, Roman. "Self-driving cars will change cities." Regional Science and Urban 
+Economics. Vol. 61. November 2016. 26-37. Website. 
+“What's Next – Waymo.” Waymo, waymo.com/whats-next/. 
+Busewitz, Cathy. “Kroger Has Launched Self-Driving Grocery Deliveries in Arizona.” Business 
+Insider, Business Insider, 20 Dec. 2018, www.businessinsider.com/kroger-has-launched- 
+self-driving-grocery-deliveries-in-arizona-2018-12. 
+Joshua Radin 
+History of Technology Paper Four 
+The ability to transport ourselves better has been a focus of human technological progress 
+for as long as humans could use tools. The ability to get from place to place with ease is a 
+problem that always has a better solution. For years, humans had to rely on horses as the main 
+form of transportation. However, the trouble with animals is that they are expensive, have to be 
+fed, and require training. Eventually, during the industrial revolution, mechanical solutions were 
+eventually invented. The train was the first instance of an entirely mechanical solution to large 
+distance ground travel. However, trains weren’t personal, had to adhere to a strict schedule, and 
+could only go where ever track was laid. It wasn’t until the invention of the affordable car that 
+transportation was truly revolutionized. For the first time, humans could travel anywhere in vast 
+distances in a relatively short amount of time for cheap. Society began to adapt around the 
+invention of the car. Suburbanization began to skyrocket as it became easier to live outside of 
+cities. Towns were being built with the idea of driving in mind, with large parking lots becoming 
+iconic features of the long main streets being built all over America. Surely, the invention of the 
+car rocked society in a large way. Now, one hundred years after the introduction of Ford’s Model 
+T, a new technology involving the way in which we transport ourselves has the potential to 
+change everything, again. As computational power increased, and more advanced sensors have 
+been invented, it has become apparent that the possibility of the large-scale implementation of 
+self-driving vehicles is upon us. The technology has the potential to change society similar to 
+how the original car. Although development has been very gradual in the last few years, 
+autonomous vehicle technology has the potential to change the way we live by dramatically 
+altering the way infrastructure is built, how cities are planned, and the fundamental ways in 
+which we view transportation. 
+The development of self-driving cars has been a very long process, although recent 
+technological advancements and superior processing power has rapidly increased the rate of 
+development. Much of the technology and concepts that are fueling modern testing of 
+autonomous cars were actually theorized and created by the Eureka PROMETHEUS Projects 
+(Daily) from 1987 to 1995. Eureka is an international, European based, government research 
+organization, which was funded with 749,000,000€ for research and development into 
+autonomous vehicles (Eureka). The work that the organization did resulted in the development of 
+the standard set of systems used for automated driving is still used today. These systems included 
+the 4D approach of mapping, recursive estimation, and Clothoid modeling of road curvature 
+(Daily). All of these technologies were significant in the advancement of self-driving capabilities 
+and are in use today for the limited amount of automation that cars are already employing. 
+However, these are not the only things that would enable a self-driving car. For an automated 
+vehicle to function, it’s most basic necessity would be its perception. The ability for a robot to 
+“see” is called machine vision and is a rapidly advancing technology. For a car to be trusted to 
+drive itself, it must be able to recognize everything that’s going on around it. This is done 
+through a multitude of sensors, ranging from infrared cameras, laser scanners, LiDAR, short- and 
+long-range radar, ultrasonic sonar, and video cameras (Access Science). All of these combined 
+are what makes up the “vision” of the robotic car. From the data it gathers from these sensors, 
+the car has to then attempt to construct a model of the world. The reason why the car has so 
+many sensors is the complexity of constructing such a model. The model of the world has to be 
+constructed at a rapid pace, due to both the speed the vehicle is traveling at and the rapidly ever- 
+changing state of the world. An improper representation of the world could lead to disaster, as 
+the car could collide into something it wasn’t aware existed. However, self-driving cars aren’t 
+the only type of cars that are taking advantage of this technology. 
+Today, cars are already being built and sold for common consumer with semi- 
+autonomous functions built in. Many cars are now being built with detectors on the side to warn 
+drivers about cars in their blind spot. Although the car itself doesn’t react to this information, this 
+type of development is a showcase of how car developers are trying to push their products to 
+operate more safely. As an increase in safety is a large part of the push for automated driving, 
+any step is a significant one. However, mere blind spot detectors are not the only part of the 
+automated vehicle suite that has appeared in consumer cars. Many cars today are starting to 
+include systems that make the car semi-autonomous. Many cars, such as the more expensive 
+Cadillac CT6 and even the Honda Civic, are including lane following with adaptive cruise 
+control (Daily). These cars, when above a certain speed limit while on a highway are able to 
+automatically adjust the speed they are going at based on the speed of the vehicle in front of 
+them and will warn the driver of any sudden changes in condition requiring the driver’s attention. 
+This level of automation is referred automation to as Level 2 by the US Department of 
+Transportation’s National Highway Traffic Safety Administration, whose scale goes from level 0 
+to level 4 (Guerra). Tesla’s autopilot system is much more advanced than this, and actually has 
+the ability to turn by itself, and suggest when to change lanes. These systems differ from the idea 
+of fully autonomous driving cars because of their lack of ability to make decisions. When a car is 
+using the speed adjusting cruise control, although it is reacting to the world around it, it is not 
+doing to intelligently. It’s not deciding that it should reduce its speed because the car in front of 
+it is but is slowing down just because it’s hard wired to do so. The ability to make decisions is 
+the defining factor of a truly autonomous car, and what is required for a self-driving car to make 
+it on the streets. 
+Decision making is one of the most difficult problems facing the development of 
+autonomous cars. An ability that humans take for granted is our intuition. Humans are able to 
+reason and come to conclusions based on the state of the world around them and are able to fill 
+in the holes in the information available to them. Furthermore, humans are able to learn at a rapid 
+rate. Modeling this with computers is incredibly difficult and requires lots of computational 
+power. Although recently computers having become significantly stronger computationally, they 
+are nowhere near the power that the human brain has. Additionally, a self-driving car couldn’t 
+only react to the world around it. It would also have to be able to predict and reason how it’s 
+actions could affect the world. A driver can’t stay in one lane on one road forever, they need to 
+turn at some point. A self-driving car would have to be able to reason that a decision it makes 
+wouldn’t endanger any other car as a result of its decision. Moreover, a self-driving car needs a 
+certain amount of insurance that the people would act predictably and cleanly. However, in real 
+life this isn’t often the case. In environments with less strict driving regulations, traffic is 
+significantly more unpredictable, filled with unexpected traversal patterns, unexpected scenarios, 
+and drivers with unpredictable driving habits (Daily). Training an artificial intelligence to predict 
+every possible scenario is impossible, and therefore would require an agent with incredibly high 
+generalization. The best way for these agents to learn is through training, unfortunately training 
+is slowed down by many factors. Notably, the cars are often locked to a small geographic area, 
+are required to much training in real-time instead of simulated, and the cars themselves are 
+expensive to build. Overall, as it currently stands fully automated driving is a fantasy, but 
+definitely a promising one. Eventually, when fully automated driving cars become the norm, it 
+will be expected that the world will change drastically around it. 
+A significant change that would be experienced as the result of the use of self-driving 
+cars would be the ways in which cities are designed. Cities will probably be the first place where 
+the introduction of self-driving cars will see changes in infrastructure. The high population living 
+there and commuting in and out of the city will require that cities be well adapted for the mass 
+changes. As the result of the introduction of automated vehicles, the demand for parking will be 
+shifted, as it becomes feasible for cars to transport themselves, so parking becomes less 
+necessary. Cities will begin to develop “parking belts” where cars will be parked in the day 
+(Zakharenko). An interesting side effect of the change to self-driving cars is that it’s predicted 
+that traffic will actually increase, but this doesn’t mean that there will be an increase in 
+congestion (Zakharenko). This means that although there will be more cars on the road, the car 
+won’t be slowed down as heavily due to interactions with other cars. Robotic cars would be 
+much more efficient with their actions, and less-likely to make unexpected moves in the fast- 
+pace of city driving. The convenience of having self-driving cars would change where both 
+people and companies choose to locate themselves, as living in a city would become even easier, 
+as self-driving cars would effectively remove many of the downsides of having a car in a city, 
+namely finding a location to park the car. However, due to the complexity of driving in a city, 
+cities would probably be the last place where cars would be fully automated. Besides the large 
+number of other cars, there would also be high levels of pedestrians, significantly greater than 
+the near zero pedestrians seen on highways. Pedestrians are even more unpredictable than cars, 
+and even more dangerous for the car. People move much more unexpectedly when not in cars, 
+because they don’t have to move several thousand pounds of metal to turn. Furthermore, there’s 
+no room for error when hitting a pedestrian. Although hitting anything would definitely be bad, 
+hitting an essentially defenseless pedestrian is even worse. Despite all of this, companies and 
+countries have begun to work on creating and testing their own self-driving vehicles. 
+Some of the largest innovators and testers in the self-driving cars industry are companies 
+trying to use the technology for profit. They are attempting to use the technology as a part of a 
+service, instead of just the car itself. Waymo, formerly the Google self-driving car project, is a 
+subsidiary of Alphabet Inc. which is attempting to bring self-driving car technology to the people 
+by the means of a taxi service. Similar to the services that are provide by Lyft and Uber, a person 
+could request a Waymo car to pick them up at a location and bring them to a specified 
+destination. Although somewhat limited in scope, the idea behind this part of the project is to 
+show the potential of self-driving cars to the public. However, Waymo’s mission does end with 
+its taxi service. The next step for Waymo will be the automation of the trucking industry 
+(Waymo). The advancement into the trucking industry could have a much more profound and 
+world-changing effect then just as a taxi service. Trucking is a critical component of the 
+American economy, and how many goods are transported around the country. However, there’s a 
+limiting factor to how much can be transported: the humans driving the trucks. Truckers have 
+required number of hours they’re allowed to sleep, and a maximum number of hours they’re 
+actually allowed to drive per day. However, if these requirements were removed by getting rid of 
+the human element, the new economic activity generated by the automated trucks would be 
+massive. These types of improvements would be the first changes that would be seen as self- 
+driving technology becomes accepted by larger portions of the industry, and as more uses are 
+found for them. 
+Trucking isn’t the only use for self-driving vehicles, and many other industries are 
+finding ways to utilize them. For example, in India companies are attempting to use self-driving 
+cars for uses in agriculture and mining (Daily). Other companies are also coming up with even 
+more creative services using automated cars. Kroger is utilizing self-driving cars for delivering 
+grocery items directly to customers. The vehicles being used for this have no steering wheel and 
+no room for a driver, a deviation from previous self-driving cars in use (Busewitz). However, 
+these delivery cars are monitored by a “shadow car”, with a driver in it who is able to stop or 
+control the self-driving car. This type of solution shows one of the main problems facing self- 
+driving cars. Although technically the car is self-driving, it still requires a person to monitor the 
+activity and actions of the car. Getting self-driving cars to be able to navigate roads without 
+being a danger is truly the hardest problem currently facing these services as well, and a large 
+part of the reason why these services have such slow rollout. People don’t want to feel even more 
+unsafe on the streets, and investors don’t want to invest in technology that could be potentially 
+harmful. Thus, as of now self-driving cars for the average consumer are a long time away from 
+hitting the market. 
+However, the slow progress does not mean that self-driving cars are not in our future. On 
+the contrary, all of this progress points to these self-driving cars eventually hitting the market. 
+Self-driving cars have the potential to change everyone’s personal lives. Self-driving cars will 
+change how people view commuting and traveling long distance. Instead of having to actually 
+drive everywhere, and therefore be incredibly mentally focused for long periods of time, self- 
+driving cars would enable people to act many of same ways they could on current public 
+transportation. People could watch television shows, watch movies, read a book, sleep, or 
+anything else that they couldn’t with their hands attached to the wheel and eyes on the road at all 
+times. As a result, people would probably be more willing to travel longer distances for their 
+work and people will move even farther away from cities. Self-driving cars will also probably 
+change how public transportation will work as well. Buses will become automated, which will 
+allow for more public transportation that can run at all times of the day. Any industry that 
+requires having a large number of drivers and cars will be able to change the ways in which their 
+company operates. Companies like Uber and Lyft, who already have been experimenting with 
+self-driving cars, would most likely move to providing the self-driving cars instead of hiring 
+drivers. Mail delivery would probably be done by automated vans, maybe utilizing drones to 
+physically deliver the letters and packages to their intended destination. Overall, the introduction 
+of autonomous vehicles will allow for the continued rise of the culture of convenience that has 
+emerged in the past few years by extending on the idea of services such as Amazon Prime: to 
+deliver products to customers as fast as possible. 
+A fascinating aspect of the rise of self-driving cars will be how it changes the workforce. 
+As a result of self-driving cars, many people will find themselves without jobs. Almost any job 
+that previously required having a driver will no longer exist, as it will be replaced by a robot. 
+However, in its wake hopefully even better jobs will emerge, as people are needed to maintain 
+the cars, both the code behind it and the physical car itself. Services that utilize these self-driving 
+cars will need people to do lots work behind the scenes in order to make sure operations go 
+smoothly. However, this does not mean there won’t be massive push back against these self- 
+driving cars. Already, taxi companies are pushing hard against companies like Waymo because it 
+threatens their status quo. It’s easier for people to continue to do what they already do versus 
+learning a new skill. So although the new jobs that could be created by the self-driving cars 
+would most likely be more lucrative than previous jobs, the uptake by the public would slowed 
+down dramatically. Slow down by popular opposition will most likely be a constant during the 
+beginning years of implementation. As of right now, there is a lot of mistrust towards self- 
+driving cars, for a multitude of reasons. For one, it’s incredibly hard to prove that the technology 
+is actually safe. Last year, a woman was killed in an accident with one of Uber’s test self-driving 
+cars, and development into the cars had to be stopped for several months as a result. Not only 
+does this hurt public perception of autonomous vehicles, but it dramatically slows down the rate 
+of growth for the intelligence of these cars. The cars require being on the road to learn, so any 
+downtime is a massive loss for the future of the technology. Furthermore, there will certainly be 
+pushback by people who don’t like the idea of giving up their ability to drive a car. There’s a 
+certain sense of freedom associated with the ability to drive a car, and people will be afraid to 
+give up that right. Mostly likely initial automated cars will still have a steering wheel and pedals 
+in them, not only to deal with possible errors that car could make, but also as a compromise with 
+those who want to still be able to control the car. Most likely, the steering wheel will never 
+actually go away. 
+Ultimately, self-driving vehicles is a technology that has a potential to cause a massive 
+change within our society. Development of automated vehicles has seen a dramatic increase in 
+interest in the last few years, and autonomous vehicle technology has the potential to change the 
+way we live by dramatically altering the way infrastructure is built, how cities are planned, and 
+the fundamental ways in which we view transportation. Many countries and companies have 
+spending large amounts of money on the research and development of these technologies 
+because of the possibilities they could provide. There’s no knowing what exactly will come out 
+of having these cars will give us, besides more convenient ways of traveling, but there’s already 
+promising signs for the future by way of the new services that are already using the technology. 
+Furthermore, another effect of developing self-driving cars will be the massive leaps in artificial 
+intelligence technology that will be created as a result. For self-driving cars to exist, we will need 
+artificial intelligence significantly stronger than what we have now, which will not only be able 
+to see the world, but also understand the semantics behind what it’s seeing. This technology 
+would have many other uses besides just autonomous cars and would further revolutionize the 
+world. Overall, the large-scale implementation of self-driving cars will most likely be a 
+technology that is seen in the near future that has the potential to alter the way we view and use 
+transportation. 
+Bibliography 
+Daily, Mike, et al. "Self-Driving Cars." Vol. 50. 12. IEEE Computer Society, December 2017. 
+18-23. Article. 
+“PROMETHESUS.” EUREKA, 1 Jan. 1987, www.eurekanetwork.org/project/id/45. 
+Editors, AccessScience. Self-Driving Car. McGraw-Hill Education, 2018, doi:10.1036/1097 
+8542.613920. 
+Guerra, Erick. "Planning for Cars that Drive Themselves: Metropolitan Planning Organizations, 
+Regional Transportation Plans, and Autonomous Vehicles." Journal of Planning 
+Education and Research. Vol. 36. 2. 2016. 210-224. 
+Zakharenko, Roman. "Self-driving cars will change cities." Regional Science and Urban 
+Economics. Vol. 61. November 2016. 26-37. Website. 
+“What's Next – Waymo.” Waymo, waymo.com/whats-next/. 
+Busewitz, Cathy. “Kroger Has Launched Self-Driving Grocery Deliveries in Arizona.” Business 
+Insider, Business Insider, 20 Dec. 2018, www.businessinsider.com/kroger-has-launched- 
+self-driving-grocery-deliveries-in-arizona-2018-12. 
+Joshua Radin 
+History of Technology Paper Four 
+The ability to transport ourselves better has been a focus of human technological progress 
+for as long as humans could use tools. The ability to get from place to place with ease is a 
+problem that always has a better solution. For years, humans had to rely on horses as the main 
+form of transportation. However, the trouble with animals is that they are expensive, have to be 
+fed, and require training. Eventually, during the industrial revolution, mechanical solutions were 
+eventually invented. The train was the first instance of an entirely mechanical solution to large 
+distance ground travel. However, trains weren’t personal, had to adhere to a strict schedule, and 
+could only go where ever track was laid. It wasn’t until the invention of the affordable car that 
+transportation was truly revolutionized. For the first time, humans could travel anywhere in vast 
+distances in a relatively short amount of time for cheap. Society began to adapt around the 
+invention of the car. Suburbanization began to skyrocket as it became easier to live outside of 
+cities. Towns were being built with the idea of driving in mind, with large parking lots becoming 
+iconic features of the long main streets being built all over America. Surely, the invention of the 
+car rocked society in a large way. Now, one hundred years after the introduction of Ford’s Model 
+T, a new technology involving the way in which we transport ourselves has the potential to 
+change everything, again. As computational power increased, and more advanced sensors have 
+been invented, it has become apparent that the possibility of the large-scale implementation of 
+self-driving vehicles is upon us. The technology has the potential to change society similar to 
+how the original car. Although development has been very gradual in the last few years, 
+autonomous vehicle technology has the potential to change the way we live by dramatically 
+altering the way infrastructure is built, how cities are planned, and the fundamental ways in 
+which we view transportation. 
+The development of self-driving cars has been a very long process, although recent 
+technological advancements and superior processing power has rapidly increased the rate of 
+development. Much of the technology and concepts that are fueling modern testing of 
+autonomous cars were actually theorized and created by the Eureka PROMETHEUS Projects 
+(Daily) from 1987 to 1995. Eureka is an international, European based, government research 
+organization, which was funded with 749,000,000€ for research and development into 
+autonomous vehicles (Eureka). The work that the organization did resulted in the development of 
+the standard set of systems used for automated driving is still used today. These systems included 
+the 4D approach of mapping, recursive estimation, and Clothoid modeling of road curvature 
+(Daily). All of these technologies were significant in the advancement of self-driving capabilities 
+and are in use today for the limited amount of automation that cars are already employing. 
+However, these are not the only things that would enable a self-driving car. For an automated 
+vehicle to function, it’s most basic necessity would be its perception. The ability for a robot to 
+“see” is called machine vision and is a rapidly advancing technology. For a car to be trusted to 
+drive itself, it must be able to recognize everything that’s going on around it. This is done 
+through a multitude of sensors, ranging from infrared cameras, laser scanners, LiDAR, short- and 
+long-range radar, ultrasonic sonar, and video cameras (Access Science). All of these combined 
+are what makes up the “vision” of the robotic car. From the data it gathers from these sensors, 
+the car has to then attempt to construct a model of the world. The reason why the car has so 
+many sensors is the complexity of constructing such a model. The model of the world has to be 
+constructed at a rapid pace, due to both the speed the vehicle is traveling at and the rapidly ever- 
+changing state of the world. An improper representation of the world could lead to disaster, as 
+the car could collide into something it wasn’t aware existed. However, self-driving cars aren’t 
+the only type of cars that are taking advantage of this technology. 
+Today, cars are already being built and sold for common consumer with semi- 
+autonomous functions built in. Many cars are now being built with detectors on the side to warn 
+drivers about cars in their blind spot. Although the car itself doesn’t react to this information, this 
+type of development is a showcase of how car developers are trying to push their products to 
+operate more safely. As an increase in safety is a large part of the push for automated driving, 
+any step is a significant one. However, mere blind spot detectors are not the only part of the 
+automated vehicle suite that has appeared in consumer cars. Many cars today are starting to 
+include systems that make the car semi-autonomous. Many cars, such as the more expensive 
+Cadillac CT6 and even the Honda Civic, are including lane following with adaptive cruise 
+control (Daily). These cars, when above a certain speed limit while on a highway are able to 
+automatically adjust the speed they are going at based on the speed of the vehicle in front of 
+them and will warn the driver of any sudden changes in condition requiring the driver’s attention. 
+This level of automation is referred automation to as Level 2 by the US Department of 
+Transportation’s National Highway Traffic Safety Administration, whose scale goes from level 0 
+to level 4 (Guerra). Tesla’s autopilot system is much more advanced than this, and actually has 
+the ability to turn by itself, and suggest when to change lanes. These systems differ from the idea 
+of fully autonomous driving cars because of their lack of ability to make decisions. When a car is 
+using the speed adjusting cruise control, although it is reacting to the world around it, it is not 
+doing to intelligently. It’s not deciding that it should reduce its speed because the car in front of 
+it is but is slowing down just because it’s hard wired to do so. The ability to make decisions is 
+the defining factor of a truly autonomous car, and what is required for a self-driving car to make 
+it on the streets. 
+Decision making is one of the most difficult problems facing the development of 
+autonomous cars. An ability that humans take for granted is our intuition. Humans are able to 
+reason and come to conclusions based on the state of the world around them and are able to fill 
+in the holes in the information available to them. Furthermore, humans are able to learn at a rapid 
+rate. Modeling this with computers is incredibly difficult and requires lots of computational 
+power. Although recently computers having become significantly stronger computationally, they 
+are nowhere near the power that the human brain has. Additionally, a self-driving car couldn’t 
+only react to the world around it. It would also have to be able to predict and reason how it’s 
+actions could affect the world. A driver can’t stay in one lane on one road forever, they need to 
+turn at some point. A self-driving car would have to be able to reason that a decision it makes 
+wouldn’t endanger any other car as a result of its decision. Moreover, a self-driving car needs a 
+certain amount of insurance that the people would act predictably and cleanly. However, in real 
+life this isn’t often the case. In environments with less strict driving regulations, traffic is 
+significantly more unpredictable, filled with unexpected traversal patterns, unexpected scenarios, 
+and drivers with unpredictable driving habits (Daily). Training an artificial intelligence to predict 
+every possible scenario is impossible, and therefore would require an agent with incredibly high 
+generalization. The best way for these agents to learn is through training, unfortunately training 
+is slowed down by many factors. Notably, the cars are often locked to a small geographic area, 
+are required to much training in real-time instead of simulated, and the cars themselves are 
+expensive to build. Overall, as it currently stands fully automated driving is a fantasy, but 
+definitely a promising one. Eventually, when fully automated driving cars become the norm, it 
+will be expected that the world will change drastically around it. 
+A significant change that would be experienced as the result of the use of self-driving 
+cars would be the ways in which cities are designed. Cities will probably be the first place where 
+the introduction of self-driving cars will see changes in infrastructure. The high population living 
+there and commuting in and out of the city will require that cities be well adapted for the mass 
+changes. As the result of the introduction of automated vehicles, the demand for parking will be 
+shifted, as it becomes feasible for cars to transport themselves, so parking becomes less 
+necessary. Cities will begin to develop “parking belts” where cars will be parked in the day 
+(Zakharenko). An interesting side effect of the change to self-driving cars is that it’s predicted 
+that traffic will actually increase, but this doesn’t mean that there will be an increase in 
+congestion (Zakharenko). This means that although there will be more cars on the road, the car 
+won’t be slowed down as heavily due to interactions with other cars. Robotic cars would be 
+much more efficient with their actions, and less-likely to make unexpected moves in the fast- 
+pace of city driving. The convenience of having self-driving cars would change where both 
+people and companies choose to locate themselves, as living in a city would become even easier, 
+as self-driving cars would effectively remove many of the downsides of having a car in a city, 
+namely finding a location to park the car. However, due to the complexity of driving in a city, 
+cities would probably be the last place where cars would be fully automated. Besides the large 
+number of other cars, there would also be high levels of pedestrians, significantly greater than 
+the near zero pedestrians seen on highways. Pedestrians are even more unpredictable than cars, 
+and even more dangerous for the car. People move much more unexpectedly when not in cars, 
+because they don’t have to move several thousand pounds of metal to turn. Furthermore, there’s 
+no room for error when hitting a pedestrian. Although hitting anything would definitely be bad, 
+hitting an essentially defenseless pedestrian is even worse. Despite all of this, companies and 
+countries have begun to work on creating and testing their own self-driving vehicles. 
+Some of the largest innovators and testers in the self-driving cars industry are companies 
+trying to use the technology for profit. They are attempting to use the technology as a part of a 
+service, instead of just the car itself. Waymo, formerly the Google self-driving car project, is a 
+subsidiary of Alphabet Inc. which is attempting to bring self-driving car technology to the people 
+by the means of a taxi service. Similar to the services that are provide by Lyft and Uber, a person 
+could request a Waymo car to pick them up at a location and bring them to a specified 
+destination. Although somewhat limited in scope, the idea behind this part of the project is to 
+show the potential of self-driving cars to the public. However, Waymo’s mission does end with 
+its taxi service. The next step for Waymo will be the automation of the trucking industry 
+(Waymo). The advancement into the trucking industry could have a much more profound and 
+world-changing effect then just as a taxi service. Trucking is a critical component of the 
+American economy, and how many goods are transported around the country. However, there’s a 
+limiting factor to how much can be transported: the humans driving the trucks. Truckers have 
+required number of hours they’re allowed to sleep, and a maximum number of hours they’re 
+actually allowed to drive per day. However, if these requirements were removed by getting rid of 
+the human element, the new economic activity generated by the automated trucks would be 
+massive. These types of improvements would be the first changes that would be seen as self- 
+driving technology becomes accepted by larger portions of the industry, and as more uses are 
+found for them. 
+Trucking isn’t the only use for self-driving vehicles, and many other industries are 
+finding ways to utilize them. For example, in India companies are attempting to use self-driving 
+cars for uses in agriculture and mining (Daily). Other companies are also coming up with even 
+more creative services using automated cars. Kroger is utilizing self-driving cars for delivering 
+grocery items directly to customers. The vehicles being used for this have no steering wheel and 
+no room for a driver, a deviation from previous self-driving cars in use (Busewitz). However, 
+these delivery cars are monitored by a “shadow car”, with a driver in it who is able to stop or 
+control the self-driving car. This type of solution shows one of the main problems facing self- 
+driving cars. Although technically the car is self-driving, it still requires a person to monitor the 
+activity and actions of the car. Getting self-driving cars to be able to navigate roads without 
+being a danger is truly the hardest problem currently facing these services as well, and a large 
+part of the reason why these services have such slow rollout. People don’t want to feel even more 
+unsafe on the streets, and investors don’t want to invest in technology that could be potentially 
+harmful. Thus, as of now self-driving cars for the average consumer are a long time away from 
+hitting the market. 
+However, the slow progress does not mean that self-driving cars are not in our future. On 
+the contrary, all of this progress points to these self-driving cars eventually hitting the market. 
+Self-driving cars have the potential to change everyone’s personal lives. Self-driving cars will 
+change how people view commuting and traveling long distance. Instead of having to actually 
+drive everywhere, and therefore be incredibly mentally focused for long periods of time, self- 
+driving cars would enable people to act many of same ways they could on current public 
+transportation. People could watch television shows, watch movies, read a book, sleep, or 
+anything else that they couldn’t with their hands attached to the wheel and eyes on the road at all 
+times. As a result, people would probably be more willing to travel longer distances for their 
+work and people will move even farther away from cities. Self-driving cars will also probably 
+change how public transportation will work as well. Buses will become automated, which will 
+allow for more public transportation that can run at all times of the day. Any industry that 
+requires having a large number of drivers and cars will be able to change the ways in which their 
+company operates. Companies like Uber and Lyft, who already have been experimenting with 
+self-driving cars, would most likely move to providing the self-driving cars instead of hiring 
+drivers. Mail delivery would probably be done by automated vans, maybe utilizing drones to 
+physically deliver the letters and packages to their intended destination. Overall, the introduction 
+of autonomous vehicles will allow for the continued rise of the culture of convenience that has 
+emerged in the past few years by extending on the idea of services such as Amazon Prime: to 
+deliver products to customers as fast as possible. 
+A fascinating aspect of the rise of self-driving cars will be how it changes the workforce. 
+As a result of self-driving cars, many people will find themselves without jobs. Almost any job 
+that previously required having a driver will no longer exist, as it will be replaced by a robot. 
+However, in its wake hopefully even better jobs will emerge, as people are needed to maintain 
+the cars, both the code behind it and the physical car itself. Services that utilize these self-driving 
+cars will need people to do lots work behind the scenes in order to make sure operations go 
+smoothly. However, this does not mean there won’t be massive push back against these self- 
+driving cars. Already, taxi companies are pushing hard against companies like Waymo because it 
+threatens their status quo. It’s easier for people to continue to do what they already do versus 
+learning a new skill. So although the new jobs that could be created by the self-driving cars 
+would most likely be more lucrative than previous jobs, the uptake by the public would slowed 
+down dramatically. Slow down by popular opposition will most likely be a constant during the 
+beginning years of implementation. As of right now, there is a lot of mistrust towards self- 
+driving cars, for a multitude of reasons. For one, it’s incredibly hard to prove that the technology 
+is actually safe. Last year, a woman was killed in an accident with one of Uber’s test self-driving 
+cars, and development into the cars had to be stopped for several months as a result. Not only 
+does this hurt public perception of autonomous vehicles, but it dramatically slows down the rate 
+of growth for the intelligence of these cars. The cars require being on the road to learn, so any 
+downtime is a massive loss for the future of the technology. Furthermore, there will certainly be 
+pushback by people who don’t like the idea of giving up their ability to drive a car. There’s a 
+certain sense of freedom associated with the ability to drive a car, and people will be afraid to 
+give up that right. Mostly likely initial automated cars will still have a steering wheel and pedals 
+in them, not only to deal with possible errors that car could make, but also as a compromise with 
+those who want to still be able to control the car. Most likely, the steering wheel will never 
+actually go away. 
+Ultimately, self-driving vehicles is a technology that has a potential to cause a massive 
+change within our society. Development of automated vehicles has seen a dramatic increase in 
+interest in the last few years, and autonomous vehicle technology has the potential to change the 
+way we live by dramatically altering the way infrastructure is built, how cities are planned, and 
+the fundamental ways in which we view transportation. Many countries and companies have 
+spending large amounts of money on the research and development of these technologies 
+because of the possibilities they could provide. There’s no knowing what exactly will come out 
+of having these cars will give us, besides more convenient ways of traveling, but there’s already 
+promising signs for the future by way of the new services that are already using the technology. 
+Furthermore, another effect of developing self-driving cars will be the massive leaps in artificial 
+intelligence technology that will be created as a result. For self-driving cars to exist, we will need 
+artificial intelligence significantly stronger than what we have now, which will not only be able 
+to see the world, but also understand the semantics behind what it’s seeing. This technology 
+would have many other uses besides just autonomous cars and would further revolutionize the 
+world. Overall, the large-scale implementation of self-driving cars will most likely be a 
+technology that is seen in the near future that has the potential to alter the way we view and use 
+transportation. 
+Bibliography 
+Daily, Mike, et al. "Self-Driving Cars." Vol. 50. 12. IEEE Computer Society, December 2017. 
+18-23. Article. 
+“PROMETHESUS.” EUREKA, 1 Jan. 1987, www.eurekanetwork.org/project/id/45. 
+Editors, AccessScience. Self-Driving Car. McGraw-Hill Education, 2018, doi:10.1036/1097 
+8542.613920. 
+Guerra, Erick. "Planning for Cars that Drive Themselves: Metropolitan Planning Organizations, 
+Regional Transportation Plans, and Autonomous Vehicles." Journal of Planning 
+Education and Research. Vol. 36. 2. 2016. 210-224. 
+Zakharenko, Roman. "Self-driving cars will change cities." Regional Science and Urban 
+Economics. Vol. 61. November 2016. 26-37. Website. 
+“What's Next – Waymo.” Waymo, waymo.com/whats-next/. 
+Busewitz, Cathy. “Kroger Has Launched Self-Driving Grocery Deliveries in Arizona.” Business 
+Insider, Business Insider, 20 Dec. 2018, www.businessinsider.com/kroger-has-launched- 
+self-driving-grocery-deliveries-in-arizona-2018-12. 
