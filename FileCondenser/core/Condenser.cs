@@ -5,8 +5,8 @@ using System.Text;
 
 namespace FileCondenser.core {
 	public class Condenser {
-		private List<string> paths;
-		private Dictionary<string, HuffmanChain> _chains;
+		private readonly Dictionary<string, HuffmanChain> _chains;
+		private readonly List<string> paths;
 
 		public Condenser(List<string> paths) {
 			this.paths = paths;
@@ -16,12 +16,12 @@ namespace FileCondenser.core {
 		public Condenser(params string[] paths) {
 			this.paths = paths.ToList();
 			_chains = new Dictionary<string, HuffmanChain>();
-		}
+		} //
 
 		public string Condense() {
-			foreach (string path in paths) {
-				string text = File.ReadAllText(path);
-				(string s, HuffmanChain chain) = Condense(text);
+			foreach (var path in paths) {
+				var text = File.ReadAllText(path);
+				var (s, chain) = Condense(text);
 				_chains.Add(path, chain);
 			}
 
@@ -29,24 +29,24 @@ namespace FileCondenser.core {
 		}
 
 		protected (string, HuffmanChain) Condense(string w) {
-			HuffmanChain chain = new HuffmanChain(w);
-			
-			BitStream b = new BitStream();
-			char[] charArray = w.ToCharArray();
+			var chain = new HuffmanChain(w);
+
+			var b = new BitStream();
+			var charArray = w.ToCharArray();
 
 			char first = charArray[0], pre = first;
 			b.AddFromStringSource(chain[first]);
-			
-			for (var i = 1; i < charArray.Length; i++) {
-				char current = charArray[i];
 
-				string relPath = chain[current, pre];
+			for (var i = 1; i < charArray.Length; i++) {
+				var current = charArray[i];
+
+				var relPath = chain[current, pre];
 				b.AddFromStringSource(relPath);
 
 				pre = current;
 			}
-			
-			StringBuilder output = new StringBuilder();
+
+			var output = new StringBuilder();
 			b.Flush();
 			output.Append(b.ToChars());
 

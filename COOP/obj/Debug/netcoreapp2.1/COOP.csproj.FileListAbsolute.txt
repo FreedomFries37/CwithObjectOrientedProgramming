@@ -1,0 +1,14 @@
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\COOP.deps.json
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\COOP.runtimeconfig.json
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\COOP.runtimeconfig.dev.json
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\COOP.dll
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\COOP.pdb
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.csprojAssemblyReference.cache
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.csproj.CoreCompileInputs.cache
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.AssemblyInfoInputs.cache
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.AssemblyInfo.cs
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.csproj.CopyComplete
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.dll
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\obj\Debug\netcoreapp2.1\COOP.pdb
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\NondeterministicGrammarParser.dll
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\COOP\bin\Debug\netcoreapp2.1\NondeterministicGrammarParser.pdb

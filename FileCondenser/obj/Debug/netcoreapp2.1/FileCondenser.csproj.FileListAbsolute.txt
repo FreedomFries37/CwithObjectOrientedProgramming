@@ -1,0 +1,11 @@
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\bin\Debug\netcoreapp2.1\FileCondenser.deps.json
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\bin\Debug\netcoreapp2.1\FileCondenser.runtimeconfig.json
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\bin\Debug\netcoreapp2.1\FileCondenser.runtimeconfig.dev.json
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\bin\Debug\netcoreapp2.1\FileCondenser.dll
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\bin\Debug\netcoreapp2.1\FileCondenser.pdb
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\obj\Debug\netcoreapp2.1\FileCondenser.csprojAssemblyReference.cache
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\obj\Debug\netcoreapp2.1\FileCondenser.csproj.CoreCompileInputs.cache
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\obj\Debug\netcoreapp2.1\FileCondenser.AssemblyInfoInputs.cache
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\obj\Debug\netcoreapp2.1\FileCondenser.AssemblyInfo.cs
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\obj\Debug\netcoreapp2.1\FileCondenser.dll
+C:\Users\Joshua\Documents\ProgrammingWorkspace\CwithObjectOrientedProgramming\FileCondenser\obj\Debug\netcoreapp2.1\FileCondenser.pdb
