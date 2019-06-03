@@ -99,9 +99,10 @@ namespace NondeterministicGrammarParser {
 			if (syntaticObject is Terminal) {
 				Terminal terminal = syntaticObject as Terminal;
 				if (terminal.token == currentChar + "") {
+				
 					nextState.advanceOneChar();
 					new StringNode(nextAvailable as CategoryNode, terminal.token);
-					return new List<State> {this };
+					return new List<State> {nextState };
 				}
 				return new List<State>();
 			}
@@ -112,7 +113,7 @@ namespace NondeterministicGrammarParser {
 					
 					nextState.advanceOneToken();
 					new StringNode(nextAvailable as CategoryNode, terminal.token);
-					return new List<State> {this };
+					return new List<State> {nextState };
 				}
 				return new List<State>();
 			}

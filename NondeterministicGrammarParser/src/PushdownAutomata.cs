@@ -44,17 +44,18 @@ namespace NondeterministicGrammarParser {
 
 				foreach (State state in stateSet) {
 					List<State> nextStateFromThisState = state.advanceOneObject();
+					
 					for (var i = nextStateFromThisState.Count - 1; i >= 0; i--) {
+						
 						if (!StateHolds(nextStateFromThisState[i])) {
 							nextStateFromThisState.RemoveAt(i);
 						}
 					}
+					
 					nextStateSet.AddRange(nextStateFromThisState);
 				}
 
 				stateSet = nextStateSet;
-				HistoryAnalyzer analyzer = new HistoryAnalyzer(this);
-				var historyTree = analyzer.HistoryTree();
 			}
 			addToHistory(stateSet);
 

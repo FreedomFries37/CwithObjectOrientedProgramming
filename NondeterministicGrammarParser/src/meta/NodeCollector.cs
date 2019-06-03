@@ -5,4 +5,8 @@ using NondeterministicGrammarParser.parse;
 namespace NondeterministicGrammarParser.meta {
 
 	public delegate Collection<ParseNode> NodeCollector(ParseTree t);
+
+	public interface NodeCollectorWrapper {
+		NodeCollector GetCollector();
+	}
 }

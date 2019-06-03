@@ -17,6 +17,14 @@ namespace NondeterministicGrammarParser.meta.standard_rules {
 		
 		public RuleInSet(RuleManager<string>.NamedSet ns) : this(ns.Name, ns.Set) { }
 		
+		public RuleInSet(string name, HashSet<string> set, NodeCollector nc) : base(nc) {
+			setName = name;
+			this.set = set;
+		}
+		
+		public RuleInSet(RuleManager<string>.NamedSet ns, NodeCollector nc) : this(ns.Name, ns.Set, nc) { }
+
+		
 
 		internal override bool GetTruthValue(Collection<ParseNode> nodes) {
 			foreach (var parseNode in nodes) {

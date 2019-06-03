@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COOP", "COOP\COOP.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NondeterministicGrammarParser", "NondeterministicGrammarParser\NondeterministicGrammarParser.csproj", "{B63BD1FA-EEF3-4B46-A400-5762E790C4F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COOPTests", "COOPTests\COOPTests.csproj", "{DA435C10-7525-4EA3-8A0B-90FFC65D7394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCondenser", "FileCondenser\FileCondenser.csproj", "{4C72E1E1-61C2-471C-A41B-DA492AF50AF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{B63BD1FA-EEF3-4B46-A400-5762E790C4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B63BD1FA-EEF3-4B46-A400-5762E790C4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B63BD1FA-EEF3-4B46-A400-5762E790C4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA435C10-7525-4EA3-8A0B-90FFC65D7394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA435C10-7525-4EA3-8A0B-90FFC65D7394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA435C10-7525-4EA3-8A0B-90FFC65D7394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA435C10-7525-4EA3-8A0B-90FFC65D7394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C72E1E1-61C2-471C-A41B-DA492AF50AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C72E1E1-61C2-471C-A41B-DA492AF50AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C72E1E1-61C2-471C-A41B-DA492AF50AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C72E1E1-61C2-471C-A41B-DA492AF50AF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

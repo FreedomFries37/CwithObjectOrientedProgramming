@@ -99,5 +99,7 @@ namespace NondeterministicGrammarParser.meta {
 		public NamedSet GetSet(string name) {
 			return sets[name];
 		}
+
+		public NamedSet this[string name] => GetSet(name);
 	}
 }

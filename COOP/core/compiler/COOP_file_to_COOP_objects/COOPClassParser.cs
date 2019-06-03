@@ -45,10 +45,13 @@ namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 
 
 			RuleManager.AddSet("reserved", ReservedWords.getReservedWords());
+			RuleManager.AddToSet("reserved", "int", "double", "float", "char", "long");
 			RuleManager.AddSet("reserved_types", "int", "double", "float", "char", "long");
-			Rule class_name_rule = new RuleAND(
-				
-			);
+
+			var classDefCollector = StandardCollectors.CategoryCollectorMulti("symbol","class_name", "class");
+
+			Rule classNameRule = new RuleOutOfSet(RuleManager["reserved"], classDefCollector);
+			RuleManager.AddRule(classNameRule);
 		}
 
 		public ParseTree parse(string w) {

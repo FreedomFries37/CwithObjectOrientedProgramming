@@ -1,1 +1,86 @@
-class_file
+## CLASS LAYOUT
+
+class_file:
+	<import_list><class>
+	
+import_list: optional
+	<import><import_list>
+
+import:
+	using <class_name> ;
+	
+class_name:
+	<symbol> <class_name_tail>
+	
+class_name_tail: optional
+	.<class_name>
+	
+class:
+	class <symbol> <parent_class> { <class_body_list> }
+	
+parent_class: optional
+	( <class_name> )
+	
+class_body_list: optional
+	<class_body_part> <class_body_list>
+	
+class_body_part:
+	<access_level> <class_name> <body_part_type>
+
+body_part_type:
+	<constructor>
+	<symbol_declaration>
+	
+constructor:
+	<parameters> <block>
+
+symbol_declaration:
+	<symbol> <symbol_declaration_tail>
+	
+symbol_declaration_tail:
+	;
+	<assignment>;
+	<function_declaration>
+	
+function_declaration:
+	<parameters> <block>
+
+block:
+	{ statement... }
+	
+statement:
+	<conditional> <executable>
+	
+	
+conditional:
+	if ( <expression> )
+	while ( <expression> )
+	for ( <opt_expression> ; <expression> ; <opt_expression> )
+	
+opt_expression: optional
+	<expression>
+	
+executable:
+	<block>
+	<execute_pathway>;
+	
+execute_pathway;
+	<call>
+	<assignment>
+	
+call:
+	<access_chain> <function_args_pass>
+
+access_chain:
+	<access_factor> <access_tail>
+	
+access_tail: optional
+	. <symbol> <opt_function_args_pass> <access_group_tail>
+	
+opt_function_args_pass: optional
+	<function_args_pass>
+	
+
+access_factor:
+	( <access_chain> ) 
+	

@@ -45,41 +45,19 @@ namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 
 		public static Category objectFactor { get; }
 
-		public static Category COOPClassFile { get; } = new Category("COOP_class_file");
-
-
-		public static Category import { get; } = new Category("import");
-		public static Category importTail { get; } = new Category("import_tail");
-		public static Category importList { get; } = new Category("import_list") {{import, importTail}};
-
-		public static Category classDefinition { get; } = new Category("class");
-		public static Category classInformation { get; } = new Category("class_info");
-
-		public static Category classNameSub { get; } = new Category("class_name_sub");
-		public static Category className { get; } = new Category("class_name");
-		public static Category parentClassName { get; }
+		
 
 
 
-		public static Category accessLevel { get; } = new Category("access_level", true)
-			{"public", "private", "protected"};
-
+		
 		public static Category assignment { get; } = new Category("assignment") {{"=", objectExpression}};
 		public static Category varDeclaration { get; } = new Category("var_dec");
 		public static Category varDeclarationStrict { get; } = new Category("var_dec_strict");
 
-		public static Category fieldDeclaration { get; } =
-			new Category("field_dec") {{accessLevel, varDeclaration, ";"}};
-
-		public static Category fieldList { get; } = new Category("field_list", true);
-
 		public static Category parameterList { get; } = new Category("parameters_list");
 		public static Category parameterTail { get; } = new Category("parameters_tail", true) {{",", parameterList}};
 		public static Category parameters { get; } = new Category("parameters") {{"(", parameterList, ")"}, {'(', ')'}};
-
-
-		public static Category contstructorDeclaration { get; } = new Category("constructor_dec");
-
+		
 
 
 		public static Category functionSign { get; } = new Category("function_sign");
@@ -100,11 +78,10 @@ namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 		public static Category listStatementtail { get; } = new Category("list_statement_tail") {listStatement};
 		public static Category block { get; } = new Category("block") {{'{', listStatement, '}'}};
 
-	public static Category functionDeclaration { get; } = new Category("function_dec") {{accessLevel, functionSign, block}};
 		
-		public static Category classBodyPart { get; } = new Category("class_body_part", true);
+	
 		
-		
+		public static Category start { get; }
 		
 		static SyntacticCategories() {
 			
@@ -117,11 +94,6 @@ namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 			symbol.StrictTokenUsage = true;
 			integer.StrictTokenUsage = true;
 			accessLevel.StrictTokenUsage = true;
-			
-			import.Add("using", symbol, ";");
-
-			className.Add(symbol, classNameSub);
-			parentClassName = new Category("parent_class") {{symbol, classNameSub}};
 
 			symbolContChar.addTerminalRulesForRange('a', 'z');
 			symbolContChar.addTerminalRulesForRange('A', 'A');
@@ -149,50 +121,40 @@ namespace COOP.core.compiler.COOP_file_to_COOP_objects {
 			stringtail.Add();
 			stringtail.Add(stringchar, stringtail);
 
-
-			importTail.Add();
-			importTail.Add(import, importList);
-
 			COOPClassFile.Add(importList, classDefinition);
-			COOPClassFile.Add(classDefinition);
-
-			classNameSub.Add();
-			classNameSub.Add(".", className);
-
-			classDefinition.Add("class", className, "[", parentClassName, "]", "{", classInformation, "}");
-			classDefinition.Add("class", className, "{", classInformation, "}");
-
-			parameterList.Add(varDeclarationStrict, parameterTail);
-
-			objectFunction.Add(objectAccess, ".", functionSign);
-			objectMemberAccess.Add(objectAccess, ".", symbol);
-
-			objectFactor.Add("!", objectFactor);
-			statement.Add(conditional, block);
 			
-			listStatement.Add(statement, listStatementtail);
+			importList.Add(import, importList);
+			import.Add("using", className);
 			
+			className.Add(symbol, classNameTail);
+			classNameTail.Add(".", className);
 			
+			classDefinition.Add("class", symbol, parentClass, '{', classBodyList, '}');
 			
+			parentClass.Add("(", className, ")");
 			
-			classInformation.Add(classBodyPart);
+			classBodyList.Add(classBodyPart, classBodyList);
+			classBodyPart.Add(accessLevel, className, bodyPartTail);
 			
-			fieldList.Add(fieldDeclaration, fieldList);
+			bodyPartTail.Add(constructor);
+			bodyPartTail.Add(symbolDeclaration);
+			
+			constructor.Add(parameters, block);
+			
+			symbolDeclaration.Add(symbol, symbolDeclarationTail);
+			symbolDeclarationTail.Add(';');
+			symbolDeclarationTail.Add(assignment, ';');
+			symbolDeclarationTail.Add(functionDeclaration);
+			
+			functionDeclaration.Add(parameters, block);
 
-			functionSign.Add(symbol, parameters);
 			
-			classBodyPart.Add(fieldDeclaration,classBodyPart);
-			classBodyPart.Add(contstructorDeclaration, classBodyPart);
-			classBodyPart.Add(functionDeclaration, classBodyPart);
 			
-			executableState.Add(block);
-			contstructorDeclaration.Add(accessLevel, className, parameters, block);
-
-
+			start = COOPClassFile;
 			if(start.validate()) start.print();
 		}
 
-		public static Category start { get; } = COOPClassFile;
+		
 		
 		
 

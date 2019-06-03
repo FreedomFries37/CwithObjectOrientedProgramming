@@ -20,7 +20,7 @@ namespace COOP.core {
 			var parseNode = parser.parseFile("rectangle.coop");
 			parseNode.print();
 			foreach (var states in parser.history) {
-				Console.WriteLine(states);
+				Console.WriteLine(states.Count);
 			}
 		}
 	
